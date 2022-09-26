@@ -1,0 +1,27 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "React application built for the Training school React Course",
+  "main": "main.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "open -a Microsoft\\ Edge index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/renatoam/training.git"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescript",
+    "beginner",
+    "javascript"
+  ],
+  "author": "Renato Alves de Melo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatoam/training/issues"
+  },
+  "homepage": "https://github.com/renatoam/training#readme"
+}
