@@ -3,9 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>Training - React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
       .card {
         width: 24rem;
         border: .1rem solid grey;
@@ -13,6 +25,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-block: 4rem;
       }
 
       .button {
@@ -35,19 +48,37 @@
         font-size: 1.6rem;
       }
     </style>
-    
-    <section class="card">
-      <p class="text">Hello, World!</p>
-      <button class="button">Greetings</button>
-    </section>
 
-    <script>
-      const textElement = document.querySelector('.text')
-      const buttonElement = document.querySelector('.button')
+    <div id="root"></div>
 
-      buttonElement.addEventListener('click', () => {
-        textElement.textContent = 'Hello, Renato!'
-      })
-    </script>
+    <!-- Lesson 1.2.2 -->
+
+    <!-- <script type="text/babel" data-plugins="transform-modules-umd" data-presets="react" data-type="module" src="./components/Title.mjs"></script> -->
+    <script type="text/babel" data-plugins="transform-modules-umd" data-presets="react" data-type="module" src="./components/Text.mjs"></script>
+    <script type="text/babel" data-plugins="transform-modules-umd" data-presets="react" data-type="module" src="./components/Button.mjs"></script>
+    <script type="text/babel" data-plugins="transform-modules-umd" data-presets="react" data-type="module" src="./App.mjs"></script>
+    <script type="text/babel" data-plugins="transform-modules-umd" data-presets="react" data-type="module" src="./script.js"></script>
+
+    <!-- Lesson 1.2.1 -->
+
+    <!-- <script type="text/babel">
+      function MyApp() {
+        const [text, setText] = React.useState('Hello, World!')
+
+        const handleClick = () => setText('Hello, Renato!')
+
+        return (
+          <section className="card">
+            <p className="text">{text}</p>
+            <button className="button" onClick={handleClick}>Greetings</button>
+          </section>
+        )
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+
+      root.render(<MyApp />);
+    </script> -->
   </body>
 </html>
