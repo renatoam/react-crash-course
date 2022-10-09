@@ -1,0 +1,31 @@
+.more {
+  margin-block-start: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  border: .2rem solid var(--light-gray);
+  background-color: var(--light-gray);
+  border-radius: 5rem;
+  max-width: fit-content;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  font-weight: 700;
+
+  &.sedans {
+    color: hsl(31, 77%, 52%);
+  }
+  
+  &.suvs {
+    color: hsl(184, 100%, 22%);
+  }
+  
+  &.luxury {
+    color: hsl(179, 100%, 13%);
+  } 
+
+  &:hover {
+    color: var(--light-gray) !important;
+    background-color: transparent;
+  }
+}

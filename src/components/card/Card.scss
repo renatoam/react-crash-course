@@ -1,0 +1,27 @@
+.card {
+  flex-grow: 1;
+  flex-basis: max(33%, 30rem);
+  padding-block: 4rem;
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 50rem;
+  text-align: start;
+  
+  @media (max-width: 40em) {
+    min-height: unset;
+  }
+
+  &#sedans {
+    background-color: hsl(31, 77%, 52%);
+  }
+  
+  &#suvs {
+    background-color: hsl(184, 100%, 22%);
+  }
+  
+  &#luxury {
+    background-color: hsl(179, 100%, 13%);
+  } 
+}
