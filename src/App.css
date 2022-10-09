@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --soft-white: hsla(0, 0%, 100%, 0.75);
+  --light-gray: hsl(0, 0%, 95%);
+  
+  --fs-body: 1.5rem;
+  --fs-title: 3.2rem;
+  --ff-body: 'Lexend Deca', sans-serif;
+  --ff-title: 'Big Shoulders Display', cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--light-gray);
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  font-weight: 400;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+@media (max-width: 40em) {
+  body {
+    place-content: unset;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: var(--ff-title);
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  max-width: 100%;
 }
