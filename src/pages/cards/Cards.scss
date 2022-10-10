@@ -54,6 +54,10 @@
   cursor: pointer;
   font-weight: 700;
 
+  a {
+    color: inherit;
+  }
+
   &:hover {
     color: var(--light-gray) !important;
     background-color: transparent;

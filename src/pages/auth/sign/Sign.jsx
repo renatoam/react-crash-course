@@ -1,15 +1,15 @@
-import { useRef, useContext } from "react"
+import { useRef } from "react"
 import { Button, Text } from "../../../components"
 import Form from "../../../components/form/Form"
 import Input from "../../../components/input/Input"
-import { AuthContext } from "../../../context/authContext"
-import { FormContext } from "../../../context/formContext"
+import { useAuthContext } from "../../../context/authContext"
+import { useFormContext } from "../../../context/formContext"
 import Info from "../info/Info"
 import './Sign.scss'
  
 export default function Sign() {
-  const { loading, setLoading } = useContext(FormContext)
-  const { createUser } = useContext(AuthContext)
+  const { loading, setLoading } = useFormContext()
+  const { createUser } = useAuthContext()
 
   const buttonText = loading ? 'Processing...' : 'Continue, please'
 

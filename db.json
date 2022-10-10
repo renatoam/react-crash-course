@@ -30,7 +30,7 @@
       "id": 2,
       "type": "suvs",
       "name": "Suvs",
-      "imageWrongForOptionalChainingExample": {
+      "image": {
         "src": "/images/icon-suvs.svg",
         "alternative": "Suvs Icon"
       },

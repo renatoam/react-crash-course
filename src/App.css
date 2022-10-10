@@ -35,6 +35,9 @@ html {
 
 body {
   background-color: var(--light-gray);
+  background-image: url('../public/images/bg-intro-desktop.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   font-weight: 400;

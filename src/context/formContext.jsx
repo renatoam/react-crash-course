@@ -1,6 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const FormContext = createContext(null)
+
+export const useFormContext = () => useContext(FormContext)
 
 export const FormProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
