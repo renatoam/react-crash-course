@@ -1,4 +1,20 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Renato",
+      "lastname": "Alves de Melo",
+      "email": "renato@gmail.com",
+      "password": "1234"
+    },
+    {
+      "email": "renatoalves92@gmail.com",
+      "password": "1234",
+      "firstname": "Renato",
+      "lastname": "Alves de Melo",
+      "id": 2
+    }
+  ],
   "cards": [
     {
       "id": 1,

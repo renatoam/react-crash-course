@@ -1,3 +1,5 @@
+import { AuthProvider } from "../../context/authContext"
+import { FormProvider } from "../../context/formContext"
 import './Auth.scss'
 import Intro from "./intro"
 import Sign from "./sign/Sign"
@@ -5,10 +7,14 @@ import Sign from "./sign/Sign"
 export default function Auth() {
   return (
     <main className="auth">
-      <section className="wrapper">
-        <Intro />
-        <Sign />
-      </section>
+      <AuthProvider>
+        <section className="wrapper">
+          <Intro />
+          <FormProvider>
+            <Sign />
+          </FormProvider>
+        </section>
+      </AuthProvider>
     </main>
   )
 }
