@@ -1,0 +1,9 @@
+.form {
+  border-radius: 1rem;
+  padding-block: var(--pd-lg);
+  padding-inline: var(--pd-lg);
+  background-color: var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow);
+}

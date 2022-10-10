@@ -1,0 +1,15 @@
+.info {
+  background-color: var(--blue);
+  color: var(--light-gray);
+  text-align: center;
+  padding-block: 1rem;
+  margin-block-end: 2rem;
+  font-size: var(--fs-body);
+  border-radius: 1rem;
+  width: 100%;
+  box-shadow: var(--box-shadow);
+
+  span {
+    font-weight: bold;
+  }
+}

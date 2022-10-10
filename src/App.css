@@ -9,14 +9,24 @@
 :root {
   --bright-orange: hsl(31, 77%, 52%);
   --dark-cyan: hsl(184, 100%, 22%);
+  --green: hsl(154, 59%, 51%);
   --very-dark-cyan: hsl(179, 100%, 13%);
   --soft-white: hsla(0, 0%, 100%, 0.75);
   --light-gray: hsl(0, 0%, 95%);
+
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
   
-  --fs-body: 1.5rem;
+  --fs-body: clamp(1.4rem, 4vw + .1rem, 2rem);
   --fs-title: 3.2rem;
-  --ff-body: 'Lexend Deca', sans-serif;
+  --ff-body: 'Poppins', sans-serif;
   --ff-title: 'Big Shoulders Display', cursive;
+
+  --pd-md: clamp(1rem, 4vw + .1rem, 2rem);
+  --pd-lg: clamp(2rem, 8vw + .1rem, 4rem);
+
+  --box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem hsl(249deg 10% 26% / 20%);
 }
 
 html {
@@ -47,4 +57,13 @@ h4, h5, h6 {
 
 img {
   max-width: 100%;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  font-family: var(--ff-body);
 }

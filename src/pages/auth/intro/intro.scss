@@ -1,0 +1,8 @@
+.intro {
+  padding-block: var(--pd-md);
+  padding-inline: var(--pd-md);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1 1 max(20%, 30rem);
+}

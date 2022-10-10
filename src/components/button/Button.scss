@@ -1,15 +1,11 @@
 .more {
   margin-block-start: auto;
-  appearance: none;
-  -webkit-appearance: none;
   border: .2rem solid var(--light-gray);
   background-color: var(--light-gray);
   border-radius: 5rem;
   max-width: fit-content;
   padding-block: 1rem;
-  padding-inline: 2rem;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
+  padding-inline: var(--pd-md);
   font-weight: 700;
 
   &.sedans {

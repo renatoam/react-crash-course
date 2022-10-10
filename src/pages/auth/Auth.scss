@@ -1,0 +1,31 @@
+.auth {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bright-orange);
+  background-image: url('../../../public/images/bg-intro-desktop.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+
+  @media (max-width: 60em) {
+    place-content: unset;
+    padding: var(--pd-md);
+  }
+
+  h2 {
+    font-size: 5.6rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 10vw, 5rem);
+  margin-inline: auto;
+  max-width: 80vw;
+
+  @media (max-width: 60em) {
+    flex-direction: column;
+  }
+}

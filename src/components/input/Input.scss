@@ -1,0 +1,22 @@
+.input {
+  padding-block: var(--pd-md);
+  padding-inline: var(--pd-lg);
+  border-radius: .4rem;
+  color: var(--dark-blue);
+  border: .1rem solid var(--grayish-blue);
+  margin-block-end: 2rem;
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  width: 100%;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: .1rem solid var(--blue);
+    outline: var(--blue) auto .1rem;
+  }
+
+  &::placeholder {
+    color: var(--grayish-blue);
+  }
+}
