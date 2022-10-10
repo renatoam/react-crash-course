@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import './App.css'
 import {
   Button,
@@ -9,11 +10,19 @@ import {
 import cards from './db'
 
 export default function App() {
-  if (!cards.length) return "No cards available."
+  const [cardList, setCardList] = useState([])
+
+  useEffect(() => {
+    if (cards.length) {
+      setCardList(cards)
+    }
+  }, [])
+
+  if (!cardList.length) return "No cards available."
 
   return (
     <Container>
-      {cards.map(card => {
+      {cardList.map(card => {
         return (
           <Card id={card.type} key={card.id}>
             <Image src={card.image} alt={card.alternative} />
