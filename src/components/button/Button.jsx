@@ -7,6 +7,7 @@ export default function Button(props) {
     <button
       type="button"
       className={className}
+      disabled={!!loading}
       {...rest}
     >
       {loading ? 'Processing...' : children}

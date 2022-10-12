@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { Button } from "../../components"
 import Form from "../../components/form/Form"
@@ -9,7 +9,7 @@ import { useNotificationContext } from "../../context/notificationContext"
 import './Authenticate.scss'
  
 export default function Authenticate() {
-  const { loading, setLoading } = useFormContext()
+  const { loading, setLoading, setFormError } = useFormContext()
   const { authenticate } = useAuthContext()
   const { notify } = useNotificationContext()
 
@@ -17,16 +17,27 @@ export default function Authenticate() {
   const form = useRef(null)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    email.current.focus()
+  }, [])
+
+  const handleClearForm = () => {
+    email.current.focus()
+    setFormError(false)
+    setLoading(false)
+  }
   
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     setLoading(true)
-    const isAuthenticated = await authenticate(email.current)
+    const response = await authenticate(email.current.value)
 
-    if (!isAuthenticated) {
-      notify('error', 'User not found.')
+    if (response.error) {
+      notify('error', response.message)
       form.current.reset()
+      setFormError(true)
       setLoading(false)
       return
     }
@@ -37,7 +48,7 @@ export default function Authenticate() {
 
   return (
     <section className="sign">
-      <Form onSubmit={handleSubmit} ref={form}>
+      <Form onSubmit={handleSubmit} onFocus={handleClearForm} ref={form}>
         <Input placeholder="Email" name="email" type="email" ref={email} />
         <Button className="continue" type="submit" loading={loading}>Continue</Button>
       </Form>

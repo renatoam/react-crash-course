@@ -6,4 +6,8 @@
   display: flex;
   flex-direction: column;
   box-shadow: var(--box-shadow);
+
+  &.error {
+    border: .5rem solid var(--red);
+  }
 }

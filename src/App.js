@@ -1,4 +1,5 @@
 import './App.css'
+import 'animate.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { RouterProvider } from 'react-router-dom'
 import { router } from "./routes"

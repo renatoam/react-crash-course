@@ -17,7 +17,8 @@
   --blue: hsl(248, 32%, 49%);
   --dark-blue: hsl(249, 10%, 26%);
   --grayish-blue: hsl(246, 25%, 77%);
-  
+  --red: hsl(350, 70%, 60%);
+
   --fs-body: clamp(1.4rem, 4vw + .1rem, 2rem);
   --fs-title: 3.2rem;
   --ff-body: 'Poppins', sans-serif;

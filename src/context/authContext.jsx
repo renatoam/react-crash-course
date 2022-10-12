@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { authenticateService, createUserService } from "../services/users";
+import { authenticateService, createUserService, signInService } from "../services/users";
 
 export const AuthContext = createContext(null)
 
@@ -15,6 +15,12 @@ export const AuthProvider = ({ children }) => {
   async function createUser(user) {
     const response = await createUserService(user)
 
+    setUser(response)
+  }
+
+  async function signIn(email, password) {
+    const response = await signInService(email, password)
+    
     setUser(response)
   }
 
