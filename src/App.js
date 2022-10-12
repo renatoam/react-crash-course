@@ -1,7 +1,13 @@
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
 import { RouterProvider } from 'react-router-dom'
 import { router } from "./routes"
+import { NotificationProvider } from "./context/notificationContext";
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return (
+    <NotificationProvider>
+      <RouterProvider router={router} />
+    </NotificationProvider>
+  )
 }

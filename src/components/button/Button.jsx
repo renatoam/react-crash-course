@@ -1,7 +1,7 @@
 import './Button.scss'
 
 export default function Button(props) {
-  const { className, children, ...rest } = props
+  const { className, loading, children, ...rest } = props
   
   return (
     <button
@@ -9,7 +9,7 @@ export default function Button(props) {
       className={className}
       {...rest}
     >
-      {children}
+      {loading ? 'Processing...' : children}
     </button>
   )
 }

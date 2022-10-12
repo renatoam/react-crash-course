@@ -1,0 +1,24 @@
+.sign {
+  flex: 1 1 max(20%, 30rem);
+}
+
+.form > p {
+  color: var(--grayish-blue);
+  font-size: 1.2rem;
+
+  span {
+    font-weight: bold;
+    color: var(--bright-orange);
+  }
+}
+
+.continue {
+  width: 100%;
+  background-color: var(--green);
+  color: var(--light-gray);
+  text-transform: uppercase;
+  padding-block: 1rem;
+  margin-block-end: 1rem;
+  font-size: var(--fs-body);
+  border-radius: .4rem;
+}
