@@ -3,12 +3,14 @@
     "id": "56ea4c4c-751e-4d50-aaf4-430b84feef69",
     "email": "seiya@pegasus.com",
     "firstname": "Seiya",
-    "lastname": "de Pegasus"
+    "lastname": "de Pegasus",
+    "password": "1234"
   },
   {
     "id": "b324337a-f0ed-4422-a25a-a5c6dc160ab8",
     "email": "hyoga@cisne.com",
     "firstname": "Hyoga",
-    "lastname": "de Cisne"
+    "lastname": "de Cisne",
+    "password": "1234"
   }
 ]

@@ -5,6 +5,7 @@ import Authenticate from "../pages/authenticate/Authenticate"
 import Cards from "../pages/cards/Cards"
 import Luxury from "../pages/luxury/Luxury"
 import Sedans from "../pages/sedans/Sedans"
+import SignIn from "../pages/signin/SignIn"
 import Suvs from "../pages/suvs/Suvs"
 
 const CardsRoutes = ({ Component }) => {
@@ -23,7 +24,11 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Authenticate />
-      }
+      },
+      {
+        path: 'signin',
+        element: <SignIn />
+      },
     ]
   },
   {
