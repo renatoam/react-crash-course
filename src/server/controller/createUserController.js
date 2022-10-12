@@ -1,7 +1,10 @@
-const fs = require('fs/promises')
-const path = require('path')
 const bcrypt = require('bcrypt')
 const { v4: uuid } = require('uuid')
+const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+const UserRepository = require("../repositories/userRepository")
+
+dotenv.config()
 
 const usersDatabase = {
   users: require('../model/users.json'),
@@ -11,6 +14,7 @@ const usersDatabase = {
 class CreateUserController {
   async run(request, response) {
     const { email, password, ...rest } = request.body
+    const userRepository = new UserRepository()
 
     if (!email || !password) {
       return response.status(400).json({ message: 'User and password are required.' })
@@ -21,18 +25,33 @@ class CreateUserController {
     if (isThereUser) return response.status(409).json({ message: 'User already exists.' })
 
     const hashedPassword = await bcrypt.hash(password, 10)
-    const newUser = { id: uuid(), email, password: hashedPassword, ...rest }
-
-    usersDatabase.setUsers([...usersDatabase.users, newUser])
-
-    delete newUser.password
-
+    
+    const accessToken = jwt.sign(
+      { email },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: 300 }
+    )
+      
+    const refreshToken = jwt.sign(
+      { email },
+      process.env.REFRESH_TOKEN_SECRET,
+      { expiresIn: '1h' }
+    )
+        
+    const newUser = {
+      ...rest,
+      id: uuid(),
+      email,
+      password: hashedPassword,
+      refreshToken
+    }
+    
     try {
-      await fs.writeFile(
-        path.join(__dirname, '../', 'model', 'users.json'),
-        JSON.stringify(usersDatabase.users, null, 2)
-      )
-      return response.status(200).json({ user: newUser, message: 'User has been created.' })
+      await userRepository.save(newUser)
+
+      response.cookie('token', refreshToken, { httpOnly: true })
+      
+      return response.status(200).json({ user: newUser, accessToken, message: 'User has been created.' })
     } catch (error) {
       return response.status(500).json({ message: 'Something went wrong', error: error.message })
     }
