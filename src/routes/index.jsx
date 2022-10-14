@@ -1,10 +1,13 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom'
+import { useEffect } from "react"
+import { createBrowserRouter, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { useAuthContext } from "../context/authContext"
 import { CardsProvider } from "../context/cardsContext"
 import Auth from "../pages/auth/Auth"
 import Authenticate from "../pages/authenticate/Authenticate"
 import Cards from "../pages/cards/Cards"
 import Homepage from "../pages/home/Homepage"
 import Luxury from "../pages/luxury/Luxury"
+import NotFound from "../pages/notfound/NotFound"
 import Sedans from "../pages/sedans/Sedans"
 import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
@@ -18,10 +21,28 @@ const CardsRoutes = ({ Component }) => {
   )
 }
 
+const PrivateRoute = () => {
+  const { user } = useAuthContext()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log('Private', user)
+    if (!user) {
+      return navigate('/auth/signin', { state: { from: location }, replace: true })
+    }
+  }, [user, location, navigate])
+
+  return (
+    <Outlet />
+  )
+}
+
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <><Outlet /></>,
+    element: <><Outlet /></>, // could be a layout instead fragment
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -48,19 +69,25 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: '/cards',
-    element: <CardsRoutes Component={Cards} />,
-  },
-  {
-    path: '/sedans',
-    element: <CardsRoutes Component={Sedans} />
-  },
-  {
-    path: '/suvs',
-    element: <CardsRoutes Component={Suvs} />
-  },
-  {
-    path: '/luxury',
-    element: <CardsRoutes Component={Luxury} />
-  },
+    path: '/',
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: 'content',
+        element: <CardsRoutes Component={Cards} />,
+      },
+      {
+        path: 'content/sedans',
+        element: <CardsRoutes Component={Sedans} />
+      },
+      {
+        path: 'content/suvs',
+        element: <CardsRoutes Component={Suvs} />
+      },
+      {
+        path: 'content/luxury',
+        element: <CardsRoutes Component={Luxury} />
+      },
+    ]
+  }
 ])

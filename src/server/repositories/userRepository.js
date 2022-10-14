@@ -17,13 +17,17 @@ class UserRepository {
   }
   
   async update(user) {
-    const filteredUsers = usersDatabase.filter(usr => usr.email !== user.email)
+    const filteredUsers = usersDatabase.users.filter(usr => usr.email !== user.email)
     usersDatabase.setUsers([...filteredUsers, user])
 
-    await fs.writeFile(
-      path.join(__dirname, '../', 'model', 'users.json'),
-      JSON.stringify(usersDatabase.users, null, 2)
-    )
+    try {
+      await fs.writeFile(
+        path.join(__dirname, '../', 'model', 'users.json'),
+        JSON.stringify(usersDatabase.users, null, 2)
+      )
+    } catch (error) {
+      throw Error(`Error on updating file: ${error.message}`)
+    }
   }
 }
 

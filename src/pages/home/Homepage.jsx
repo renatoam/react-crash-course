@@ -1,8 +1,13 @@
 import './Homepage.scss'
 import { DataDisplay, LatticePattern, Tool, TreeList, TwoEllipses } from "@icon-park/react"
 import { Link } from "react-router-dom"
+import { useAuthContext } from "../../context/authContext"
 
 export default function Homepage() {
+  const { user } = useAuthContext()
+
+  // implement logout
+
   return (
     <main className="home">
       <header className="home__header">
@@ -15,22 +20,22 @@ export default function Homepage() {
         <nav className="navigation">
           <ul className="navigation__list">
             <li className="navigation__link">
-              <a href="#home">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="navigation__link">
-              <a href="#content">Content</a>
+              <Link to="/content">Content</Link>
             </li>
             <li className="navigation__link">
-              <a href="#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
             <li className="navigation__link">
-              <a href="#about">About</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
         <button className="login">
           <Link to="/auth">
-            Login
+            {user ? 'Logout' : 'Login'}
           </Link>
         </button>
       </header>

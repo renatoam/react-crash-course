@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Button } from "../../components"
 import Form from "../../components/form/Form"
 import Input from "../../components/input/Input"
@@ -10,7 +10,7 @@ import './SignIn.scss'
  
 export default function SignIn() {
   const { loading, setLoading, setFormError } = useFormContext()
-  const { signIn } = useAuthContext()
+  const { signIn, user } = useAuthContext()
   const { notify } = useNotificationContext()
 
   const password = useRef(null)
@@ -18,6 +18,8 @@ export default function SignIn() {
   const form = useRef(null)
 
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
 
   useEffect(() => {
     email.current.focus()
@@ -27,6 +29,12 @@ export default function SignIn() {
     setFormError(false)
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (user) {
+      return navigate(from, { replace: true })
+    }
+  }, [user, from, navigate])
   
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -35,8 +43,7 @@ export default function SignIn() {
     
     try {
       await signIn(email.current.value, password.current.value)
-      notify('success', 'Welcome back!')
-      return navigate('/cards')
+      return notify('success', 'Welcome back!')
     } catch (error) {
       notify('error', error.message)
       form.current.reset()

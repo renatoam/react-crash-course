@@ -26,7 +26,6 @@ class SignInController {
     }
 
     const match = await bcrypt.compare(password, user.password)
-    console.log({ new: password, old: user.password, match })
 
     if (!match) {
       return response.status(401).json({ message: 'Invalid password.' })
@@ -56,12 +55,16 @@ class SignInController {
     }
 
     delete responseUser.password
+    delete responseUser.refreshToken
 
     try {
       await userRepository.update({ ...user, refreshToken })
       return response.status(200).json({ user: responseUser })
-    } catch {
-      return response.status(500).json({ message: 'It was not possible update user.' })
+    } catch (error) {
+      return response.status(500).json({
+        message: 'It was not possible update user.',
+        error: error.message
+      })
     }
   }
 }

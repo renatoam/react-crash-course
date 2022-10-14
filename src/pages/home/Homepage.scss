@@ -123,12 +123,15 @@ $header-height: 10rem;
 
   &__information {
     flex: 1 1 100%;
-    color: var(--dark-blue);
     width: min(100% - 3rem, var(--container-max-relative, 60ch));
     margin-inline: auto;
 
     h2 {
       font-size: clamp(3.2rem, 12vw + .1rem, 6.4rem);
+    }
+
+    & > *:not(button) {
+      color: var(--very-dark-blue);
     }
   }
 

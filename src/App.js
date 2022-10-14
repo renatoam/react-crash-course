@@ -4,11 +4,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { RouterProvider } from 'react-router-dom'
 import { router } from "./routes"
 import { NotificationProvider } from "./context/notificationContext";
+import { AuthProvider } from "./context/authContext";
 
 export default function App() {
   return (
     <NotificationProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </NotificationProvider>
   )
 }
