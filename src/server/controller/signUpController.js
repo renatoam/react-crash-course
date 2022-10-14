@@ -11,9 +11,10 @@ const usersDatabase = {
   setUsers: function (data) { this.users = data }
 }
 
-class CreateUserController {
+class SignUpController {
   async run(request, response) {
     const { email, password, ...rest } = request.body
+    console.log('Body', request.body)
     const userRepository = new UserRepository()
 
     if (!email || !password) {
@@ -58,4 +59,4 @@ class CreateUserController {
   }
 }
 
-module.exports = CreateUserController
+module.exports = SignUpController

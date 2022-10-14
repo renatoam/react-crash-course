@@ -32,18 +32,17 @@ export default function Authenticate() {
     event.preventDefault()
 
     setLoading(true)
-    const response = await authenticate(email.current.value)
-
-    if (response.error) {
-      notify('error', response.message)
+    
+    try {
+      await authenticate(email.current.value)
+      notify('success', 'Authenticated!')
+      return navigate('/signin')
+    } catch (error) {
+      notify('error', error.message)
       form.current.reset()
       setFormError(true)
       setLoading(false)
-      return
     }
-    
-    notify('success', 'Authenticated!')
-    return navigate('/signin')
   }
 
   return (

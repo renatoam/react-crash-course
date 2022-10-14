@@ -4,7 +4,7 @@
   border-radius: .4rem;
   color: var(--dark-blue);
   border: .1rem solid var(--grayish-blue);
-  margin-block-end: 2rem;
+  margin-block-end: 3rem;
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   width: 100%;
@@ -18,5 +18,22 @@
 
   &::placeholder {
     color: var(--grayish-blue);
+  }
+
+  &.error {
+    border: .2rem solid var(--red);
+    outline: var(--red) auto 0.2rem;
+  }
+
+  &-control {
+    position: relative;
+  }
+
+  & + .message {
+    position: absolute;
+    font-size: var(--fs-error);
+    color: var(--red);
+    left: 0;
+    bottom: 0.5rem;
   }
 }

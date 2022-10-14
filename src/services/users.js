@@ -9,10 +9,14 @@ export const authenticateService = async (email) => {
   }
 }
 
-export const createUserService = async (user) => {
-  const response = await axios.post('/users', user)
-
-  return response.data
+export const signUpService = async (user) => {
+  console.log({ user })
+  try {
+    const response = await axios.post('/signup', user)
+    return response.data
+  } catch (error) {
+    return { error: true, message: error.response.data.message }
+  }
 }
 
 export const signInService = async (email, password) => {
@@ -20,6 +24,6 @@ export const signInService = async (email, password) => {
     const response = await axios.post('/signin', { email, password })
     return response.data
   } catch (error) {
-    return error?.response
+    return { error: true, message: error.response.data.message }
   }
 }

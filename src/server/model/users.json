@@ -12,5 +12,13 @@
     "firstname": "Hyoga",
     "lastname": "de Cisne",
     "password": "1234"
+  },
+  {
+    "firstname": "Renato",
+    "lastname": "Alves de Melo",
+    "id": "f3b645ab-c777-4a1b-bb38-74474c52d64f",
+    "email": "renato@alves.com",
+    "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2NjU2MzM1MTIsImV4cCI6MTY2NTYzNzExMn0.8UiUPFECt12SOvQ0iANXMADGcxuK6Tur0LfCjJCRphE"
   }
 ]

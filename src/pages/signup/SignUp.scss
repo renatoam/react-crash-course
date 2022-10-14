@@ -21,4 +21,10 @@
   margin-block-end: 1rem;
   font-size: var(--fs-body);
   border-radius: .4rem;
+
+  &.helper {
+    background-color: transparent;
+    border: .2rem solid var(--green);
+    color: var(--green);
+  }
 }

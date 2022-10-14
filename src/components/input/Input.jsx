@@ -2,17 +2,27 @@ import { forwardRef } from "react"
 import './Input.scss'
  
 const Input = forwardRef((props, ref) => {
-  const { placeholder, name, type = "text", ...rest } = props
+  const {
+    placeholder,
+    name,
+    type = "text",
+    error = false,
+    errorMessage = '',
+    ...rest
+  } = props
 
   return (
-    <input
-      type={type}
-      className="input"
-      placeholder={placeholder}
-      name={name}
-      ref={ref}
-      {...rest}
-    />
+    <section className="input-control">
+      <input
+        type={type}
+        className={`input ${error ? 'error' : ''}`}
+        placeholder={placeholder}
+        name={name}
+        ref={ref}
+        {...rest}
+      />
+      {error && <span className="message">{errorMessage}</span>}
+    </section>
   )
 })
 

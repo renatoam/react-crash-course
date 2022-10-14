@@ -26,6 +26,7 @@ class SignInController {
     }
 
     const match = await bcrypt.compare(password, user.password)
+    console.log({ new: password, old: user.password, match })
 
     if (!match) {
       return response.status(401).json({ message: 'Invalid password.' })

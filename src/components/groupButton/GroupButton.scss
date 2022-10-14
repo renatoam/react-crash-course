@@ -1,0 +1,12 @@
+.group-button {
+  display: flex;
+  gap: 1rem;
+
+  & button {
+    flex: 1 2 50%;
+  }
+  
+  & button:first-of-type {
+    flex: 2 1 100%;
+  }
+}
