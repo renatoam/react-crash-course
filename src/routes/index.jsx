@@ -1,11 +1,13 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Outlet } from 'react-router-dom'
 import { CardsProvider } from "../context/cardsContext"
 import Auth from "../pages/auth/Auth"
 import Authenticate from "../pages/authenticate/Authenticate"
 import Cards from "../pages/cards/Cards"
+import Homepage from "../pages/home/Homepage"
 import Luxury from "../pages/luxury/Luxury"
 import Sedans from "../pages/sedans/Sedans"
 import SignIn from "../pages/signin/SignIn"
+import SignUp from "../pages/signup/SignUp"
 import Suvs from "../pages/suvs/Suvs"
 
 const CardsRoutes = ({ Component }) => {
@@ -19,6 +21,16 @@ const CardsRoutes = ({ Component }) => {
 export const router = createBrowserRouter([
   {
     path: '/',
+    element: <><Outlet /></>,
+    children: [
+      {
+        index: true,
+        element: <Homepage />
+      },
+    ]
+  },
+  {
+    path: '/auth',
     element: <Auth />,
     children: [
       {
@@ -29,6 +41,10 @@ export const router = createBrowserRouter([
         path: 'signin',
         element: <SignIn />
       },
+      {
+        path: 'signup',
+        element: <SignUp />
+      }
     ]
   },
   {
