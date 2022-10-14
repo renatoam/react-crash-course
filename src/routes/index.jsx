@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { createBrowserRouter, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAuthContext } from "../context/authContext"
-import { CardsProvider } from "../context/cardsContext"
+import { SummaryProvider } from "../context/summaryContext"
 import Auth from "../pages/auth/Auth"
 import Authenticate from "../pages/authenticate/Authenticate"
-import Cards from "../pages/cards/Cards"
+import Summary from "../pages/cards/Summary"
 import Homepage from "../pages/home/Homepage"
 import Luxury from "../pages/luxury/Luxury"
 import NotFound from "../pages/notfound/NotFound"
@@ -13,11 +13,11 @@ import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
 import Suvs from "../pages/suvs/Suvs"
 
-const CardsRoutes = ({ Component }) => {
+const SummaryRoutes = ({ Component }) => {
   return (
-    <CardsProvider>
+    <SummaryProvider>
       <Component />
-    </CardsProvider>
+    </SummaryProvider>
   )
 }
 
@@ -27,7 +27,6 @@ const PrivateRoute = () => {
   const location = useLocation()
 
   useEffect(() => {
-    console.log('Private', user)
     if (!user) {
       return navigate('/auth/signin', { state: { from: location }, replace: true })
     }
@@ -74,19 +73,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'content',
-        element: <CardsRoutes Component={Cards} />,
+        element: <SummaryRoutes Component={Summary} />,
       },
       {
         path: 'content/sedans',
-        element: <CardsRoutes Component={Sedans} />
+        element: <SummaryRoutes Component={Sedans} />
       },
       {
         path: 'content/suvs',
-        element: <CardsRoutes Component={Suvs} />
+        element: <SummaryRoutes Component={Suvs} />
       },
       {
         path: 'content/luxury',
-        element: <CardsRoutes Component={Luxury} />
+        element: <SummaryRoutes Component={Luxury} />
       },
     ]
   }

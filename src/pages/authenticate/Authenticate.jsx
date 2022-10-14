@@ -36,7 +36,7 @@ export default function Authenticate() {
     try {
       await authenticate(email.current.value)
       notify('success', 'Authenticated!')
-      return navigate('/signin')
+      return navigate('/auth/signin')
     } catch (error) {
       notify('error', error.message)
       form.current.reset()

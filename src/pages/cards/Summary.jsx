@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   Button,
   Card,
@@ -5,18 +6,17 @@ import {
   Image,
   Text
 } from '../../components'
-import { useCardsContext } from "../../context/cardsContext"
-import './Cards.scss'
-import { Link } from 'react-router-dom'
+import { useSummaryContext } from "../../context/summaryContext"
+import './Summary.scss'
 
-export default function Cards() {
-  const { cardList } = useCardsContext()
+export default function Summary() {
+  const { summary } = useSummaryContext()
 
-  if (!cardList.length) return "No cards available."
+  if (!summary.length) return "No cards available."
 
   return (
     <Container>
-      {cardList.map(card => {
+      {summary.map(card => {
         return (
           <Card id={card.type} key={card.id}>
             <Image src={card.image?.src} alt={card.image?.alternative} />

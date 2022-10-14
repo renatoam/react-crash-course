@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       throw Error(response.message)
     }
 
-    setUser(response)
+    setUser(response?.user)
   }
 
   async function signIn(email, password) {
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       throw Error(response.message)
     }
 
-    setUser(response)
+    setUser(response?.user)
   }
 
   const value = {

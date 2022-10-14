@@ -1,8 +1,8 @@
 import Content from "../../components/content/Content"
-import { useCardsContext } from "../../context/cardsContext"
+import { useSummaryContext } from "../../context/summaryContext"
 
 export default function Luxury() {
-  const { luxury } = useCardsContext()
+  const { luxury } = useSummaryContext()
 
   if (!luxury) return 'No content available'
 

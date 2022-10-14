@@ -1,8 +1,8 @@
 import Content from "../../components/content/Content"
-import { useCardsContext } from "../../context/cardsContext"
+import { useSummaryContext } from "../../context/summaryContext"
 
 export default function Sedans() {
-  const { sedans } = useCardsContext()
+  const { sedans } = useSummaryContext()
 
   if (!sedans) return 'No content available'
 

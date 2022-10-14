@@ -10,7 +10,6 @@ export const authenticateService = async (email) => {
 }
 
 export const signUpService = async (user) => {
-  console.log({ user })
   try {
     const response = await axios.post('/signup', user)
     return response.data

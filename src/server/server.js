@@ -5,7 +5,12 @@ const bodyParser = require('body-parser')
 const router = require('./routes')
 const server = express()
 
-server.use(cors())
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true
+}
+
+server.use(cors(corsOptions))
 server.use(cookieParser())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
