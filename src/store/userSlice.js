@@ -6,10 +6,13 @@ const userSlice = createSlice({
   reducers: {
     setUser: (_state, action) => {
       return action.payload
+    },
+    setToken: (state, action) => {
+      state.accessToken = action.payload
     }
   }
 })
 
-export const { setUser } = userSlice.actions
+export const { setUser, setToken } = userSlice.actions
 
 export default userSlice.reducer

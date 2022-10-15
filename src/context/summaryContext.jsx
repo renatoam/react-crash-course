@@ -11,10 +11,10 @@ export const SummaryProvider = ({ children }) => {
   const [summary, setSummary] = useState([])
 
   const fetchSummaryData = useCallback(async () => {
-    const response = await getSummaryService(user?.accessToken)
+    const response = await getSummaryService()
     
     setSummary(response?.summary)
-  }, [user])
+  }, [])
 
   useEffect(() => {
     if (user) {

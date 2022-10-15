@@ -14,7 +14,6 @@ const usersDatabase = {
 class SignUpController {
   async run(request, response) {
     const { email, password, ...rest } = request.body
-    console.log('Body', request.body)
     const userRepository = new UserRepository()
 
     if (!email || !password) {

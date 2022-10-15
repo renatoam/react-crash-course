@@ -46,7 +46,7 @@ class SignInController {
     response.cookie(
       'token',
       refreshToken,
-      { maxAge: 24 * 60 * 60 * 1000, httpOnly: true }
+      { maxAge: 24 * 60 * 60 * 1000, httpOnly: true, secure: true }
     )
 
     const responseUser = {

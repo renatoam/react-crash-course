@@ -12,10 +12,10 @@ export default function Layout({ children }) {
     <section className="layout">
       <header className="layout__header">
         <figure className="layout__logo">
-          <a href="/">
+          <Link to="/">
             <img src="/images/react.svg" alt="React Crash Course" />
             <h1>React Course</h1>
-          </a>
+          </Link>
         </figure>
         <nav className="navigation">
           <ul className="navigation__list">

@@ -12,7 +12,7 @@ import './Summary.scss'
 export default function Summary() {
   const { summary } = useSummaryContext()
 
-  if (!summary.length) return "No cards available."
+  if (!summary?.length) return "No cards available."
 
   return (
     <Container>
