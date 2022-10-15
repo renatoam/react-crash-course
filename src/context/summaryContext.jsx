@@ -1,13 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { getSummaryService } from "../services/summary";
-import { useAuthContext } from "./authContext";
 
 export const SummaryContext = createContext(null)
 
 export const useSummaryContext = () => useContext(SummaryContext)
 
 export const SummaryProvider = ({ children }) => {
-  const { user } = useAuthContext()
+  const user = useSelector(state => state.user)
   const [summary, setSummary] = useState([])
 
   const fetchSummaryData = useCallback(async () => {

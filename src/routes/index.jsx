@@ -1,18 +1,18 @@
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import { createBrowserRouter, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { useAuthContext } from "../context/authContext"
+import Layout from "../components/layout/Layout"
 import { SummaryProvider } from "../context/summaryContext"
 import Auth from "../pages/auth/Auth"
 import Authenticate from "../pages/authenticate/Authenticate"
-import Summary from "../pages/summary/Summary"
-import Homepage from "../pages/home/Homepage"
 import CSS from "../pages/css/CSS"
+import Homepage from "../pages/home/Homepage"
+import JavaScript from "../pages/javascript/JavaScript"
 import NotFound from "../pages/notfound/NotFound"
 import ReactPage from "../pages/react/React"
 import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
-import JavaScript from "../pages/javascript/JavaScript"
-import Layout from "../components/layout/Layout"
+import Summary from "../pages/summary/Summary"
 
 const SummaryRoutes = ({ Component }) => {
   return (
@@ -23,7 +23,7 @@ const SummaryRoutes = ({ Component }) => {
 }
 
 const PrivateRoute = () => {
-  const { user } = useAuthContext()
+  const user = useSelector(state => state.user)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -37,6 +37,15 @@ const PrivateRoute = () => {
     <Outlet />
   )
 }
+
+
+// Refresh Token
+// Redux Dev Tools
+// React Dev Tools
+// Custom Hooks
+// PropTypes
+// Logout
+// Notifications
 
 export const router = createBrowserRouter([
   {

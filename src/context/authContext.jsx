@@ -1,12 +1,15 @@
-import { createContext, useContext, useState } from "react";
-import { authenticateService, signUpService, signInService } from "../services/users";
+import { createContext, useContext } from "react";
+import { useDispatch } from "react-redux";
+import { authenticateService, signInService, signUpService } from "../services/users";
+import { setNotifications } from "../store/notificationsSlice";
+import { setUser } from "../store/userSlice";
 
 export const AuthContext = createContext(null)
 
 export const useAuthContext = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+  const dispatch = useDispatch()
 
   async function authenticate(email) {
     const response = await authenticateService(email)
@@ -22,25 +25,32 @@ export const AuthProvider = ({ children }) => {
     if (response?.error) {
       throw Error(response.message)
     }
-
-    setUser(response?.user)
   }
 
   async function signIn(email, password) {
     const response = await signInService(email, password)
 
     if (response?.error) {
-      throw Error(response.message)
+      dispatch(setNotifications({
+        status: 'error',
+        message: response.message
+      }))
+
+      return false
     }
 
-    setUser(response?.user)
+    dispatch(setUser(response))
+    dispatch(setNotifications({
+      status: 'success',
+      message:  `Olá de novo, ${response.firstname ?? 'estudante'}!`
+    }))
+    return true
   }
 
   const value = {
     signUp,
     authenticate,
-    signIn,
-    user
+    signIn
   }
 
   return (

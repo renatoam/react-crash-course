@@ -1,16 +1,17 @@
 import { useEffect, useRef } from "react"
+import { useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Button } from "../../components"
 import Form from "../../components/form/Form"
 import Input from "../../components/input/Input"
 import { useAuthContext } from "../../context/authContext"
 import { useFormContext } from "../../context/formContext"
-import { useNotificationContext } from "../../context/notificationContext"
  
 export default function SignIn() {
   const { loading, setLoading, setFormError } = useFormContext()
-  const { signIn, user } = useAuthContext()
-  const { notify } = useNotificationContext()
+  const { signIn } = useAuthContext()
+
+  const user = useSelector(state => state.user)
 
   const password = useRef(null)
   const email = useRef(null)
@@ -40,15 +41,13 @@ export default function SignIn() {
 
     setLoading(true)
     
-    try {
-      await signIn(email.current.value, password.current.value)
-      return notify('success', 'Welcome back!')
-    } catch (error) {
-      notify('error', error.message)
+    const response = await signIn(email.current.value, password.current.value)
+    
+    if (!response) {
       form.current.reset()
       setFormError(true)
       setLoading(false)
-    }    
+    }
   }
 
   return (

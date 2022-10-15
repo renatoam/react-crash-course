@@ -21,7 +21,7 @@ export const signUpService = async (user) => {
 export const signInService = async (email, password) => {
   try {
     const response = await axiosDefault.post('/signin', { email, password })
-    return response.data
+    return response?.data?.user
   } catch (error) {
     return { error: true, message: error.response.data.message }
   }
