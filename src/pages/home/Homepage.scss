@@ -1,116 +1,16 @@
 $header-height: 10rem;
 
 .home {
-  height: 100%;
   width: 100%;
   overflow: hidden;
 
-  &__header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    height: $header-height;
-    border-bottom: .1rem solid hsla(246, 25%, 77%, 0.5);
-    gap: 3rem;
-
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 10vw;
-    }
-  }
-
-  &__logo {
-    flex: 1 1 10%;
-    position: relative;
-    height: 5rem;
-
-    & *:is(h1, img) {
-      transition: all 0.4s ease-in-out;
-    }
-
-    a {
-      color: var(--very-dark-blue);
-    }
-
-    h1 {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 10%;
-      opacity: 0;
-      width: 100%;
-      font-size: 2rem;
-      color: var(--very-dark-blue);
-      text-align: center;
-    }
-    
-    img {
-      height: 100%;
-    }
-
-    &:hover {
-      h1 {
-        left: clamp(9rem, 12vw + 1rem, 12rem);
-        opacity: 1;
-      }
-
-      img {
-        transform: rotate(360deg);
-      }
-    }
-  }
-
-  &__footer {
-    background-color: var(--very-dark-blue);
-    color: var(--light-gray);
-    padding-block: 4rem;
-    display: grid;
-    place-content: center;
-  }
-}
-
-.navigation {
-  flex: 1 1 40ch;
-
-  &__list {
-    display: flex;
-  }
-
-  &__link {
-    flex: 1 1 20%;
-
-    a {
-      color: var(--very-dark-blue);
-    }
-  }
-}
-
-.login {
-  flex: 1 1 10%;
-  background-color: var(--very-dark-blue);
-  transition: all 0.4s ease-in-out;
-  border-radius: 1rem;
-  text-transform: uppercase;
-  max-width: 20rem;
-
-  a {
-    color: var(--light-gray);
-    display: block;
-    padding-block: 1rem;
-    padding-inline: 2rem;
-  }
-
-  &:hover {
-    background-color: lighten(hsl(200, 79%, 23%), 5);
+  @media (max-width: 46em) {
+    text-align: center;
   }
 }
 
 .hero {
   --container-max: 90vw;
-  --container-max-relative: 90%;
 
   align-items: center;
   display: flex;
@@ -122,8 +22,7 @@ $header-height: 10rem;
   gap: 2rem;
 
   &__information {
-    flex: 1 1 100%;
-    width: min(100% - 3rem, var(--container-max-relative, 60ch));
+    flex: 1 1 calc(100% - 3rem);
     margin-inline: auto;
 
     h2 {
@@ -131,7 +30,7 @@ $header-height: 10rem;
     }
 
     & > *:not(button) {
-      color: var(--very-dark-blue);
+      color: var(--dark-text);
     }
   }
 
@@ -140,6 +39,10 @@ $header-height: 10rem;
     height: 100%;
     text-align: center;
     position: relative;
+
+    @media (max-width: 64em) {
+      display: none;
+    }
 
     img {
       height: 100%;
@@ -161,19 +64,44 @@ $header-height: 10rem;
   }
 
   &__call-to-action {
-    background-color: var(--very-dark-blue);
-    color: var(--light-gray);
-    transition: all 0.4s ease-in-out;
+    background-color: var(--dark-cta);
+    color: var(--light-text);
+    transition: var(--transition);
     padding-block: 1rem;
     padding-inline: 2rem;
     border-radius: 1rem;
     text-transform: uppercase;
     width: min(100% - 2rem, 40vw);
     margin-block: 2rem;
-    font-size: large;
+    font-size: var(--fs-body-lg);
+
+    @media (max-width: 46em) {
+      width: 100%;
+    }
   
     &:hover {
-      background-color: lighten(hsl(200, 79%, 23%), 5);
+      background-color: var(--dark-cta-hover);
+    }
+  }
+}
+
+.course {
+  &__title {
+    color: var(--dark-text);
+    font-size: 4.8rem;
+    margin-block: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      height: .4rem;
+      width: max(4vw, 10rem);
+      background-color: var(--dark-text);
     }
   }
 }
@@ -187,7 +115,7 @@ $header-height: 10rem;
   flex-wrap: wrap;
   gap: var(--gap);
   margin-inline: auto;
-  padding-block: 20rem;
+  padding-block: 10rem;
   width: min(100% - 3rem, var(--container-max, 144rem));
   
   & > * {
@@ -201,10 +129,13 @@ $header-height: 10rem;
     a {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
       gap: 1rem;
-      color: var(--very-dark-blue);;
+      color: var(--dark-text);
+
+      @media (max-width: 46em) {
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 
@@ -214,10 +145,9 @@ $header-height: 10rem;
     border-radius: 100%;
     display: grid;
     place-content: center;
-    background-color: var(--very-dark-blue);
-    margin-inline: auto;
+    background-color: var(--dark-cta);
     margin-block-end: 2rem;
-    color: var(--light-gray);
+    color: var(--light-text);
     font-size: 3.2rem;
 
     span {

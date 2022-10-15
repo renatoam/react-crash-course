@@ -6,7 +6,6 @@ import Input from "../../components/input/Input"
 import { useAuthContext } from "../../context/authContext"
 import { useFormContext } from "../../context/formContext"
 import { useNotificationContext } from "../../context/notificationContext"
-import './Authenticate.scss'
  
 export default function Authenticate() {
   const { loading, setLoading, setFormError } = useFormContext()

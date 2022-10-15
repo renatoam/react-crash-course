@@ -5,4 +5,9 @@
   flex-direction: column;
   gap: 2rem;
   flex: 1 1 max(20%, 30rem);
+
+  & > .title,
+  & > .description {
+    color: var(--dark-text);
+  }
 }

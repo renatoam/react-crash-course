@@ -9,7 +9,6 @@ import { useAuthContext } from "../../context/authContext"
 import { useFormContext } from "../../context/formContext"
 import { useNotificationContext } from "../../context/notificationContext"
 import Info from "../auth/info/Info"
-import './SignUp.scss'
 
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
 const initialUserState = {

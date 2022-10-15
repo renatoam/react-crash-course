@@ -6,23 +6,22 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  height: 100%;
   text-align: start;
   
   @media (max-width: 40em) {
     min-height: unset;
   }
 
-  &#sedans {
-    background-color: hsl(31, 77%, 52%);
+  &#react {
+    background-color: var(--very-dark-cyan);
   }
   
-  &#suvs {
-    background-color: hsl(184, 100%, 22%);
+  &#javascript {
+    background-color: var(--dark-cyan);
   }
   
-  &#luxury {
-    background-color: hsl(179, 100%, 13%);
+  &#css {
+    background-color: var(--dark-cyan-hover);
   } 
 }
 
@@ -31,12 +30,12 @@
 }
 
 .title {
-  color: var(--light-gray);
+  color: var(--light-text);
   font-size: var(--fs-title);
 }
 
 .description {
-  color: var(--soft-white);
+  color: var(--light-text);
   line-height: 1.5;
 }
 
@@ -50,7 +49,7 @@
   max-width: fit-content;
   padding-block: 1rem;
   padding-inline: 2rem;
-  transition: all 0.4s ease-in-out;
+  transition: var(--transition);
   cursor: pointer;
   font-weight: 700;
 

@@ -15,7 +15,7 @@
   }
 
   &__info {
-    color: var(--very-dark-blue);
+    color: var(--dark-text);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -32,21 +32,21 @@
   }
 
   &__call-to-action {
-    background-color: var(--very-dark-blue);
-    transition: all 0.4s ease-in-out;
+    background-color: var(--dark-cta);
+    transition: var(--transition);
     border-radius: 1rem;
     text-transform: uppercase;
     max-width: 20rem;
   
     a {
-      color: var(--light-gray);
+      color: var(--light-text);
       display: block;
       padding-block: 1rem;
       padding-inline: 2rem;
     }
   
     &:hover {
-      background-color: lighten(hsl(200, 79%, 23%), 5);
+      background-color: var(--dark-cta-hover);
     }
   }
 }

@@ -4,14 +4,15 @@ import { useAuthContext } from "../context/authContext"
 import { SummaryProvider } from "../context/summaryContext"
 import Auth from "../pages/auth/Auth"
 import Authenticate from "../pages/authenticate/Authenticate"
-import Summary from "../pages/cards/Summary"
+import Summary from "../pages/summary/Summary"
 import Homepage from "../pages/home/Homepage"
-import Luxury from "../pages/luxury/Luxury"
+import CSS from "../pages/css/CSS"
 import NotFound from "../pages/notfound/NotFound"
-import Sedans from "../pages/sedans/Sedans"
+import ReactPage from "../pages/react/React"
 import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
-import Suvs from "../pages/suvs/Suvs"
+import JavaScript from "../pages/javascript/JavaScript"
+import Layout from "../components/layout/Layout"
 
 const SummaryRoutes = ({ Component }) => {
   return (
@@ -40,13 +41,35 @@ const PrivateRoute = () => {
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <><Outlet /></>, // could be a layout instead fragment
+    element: <Layout><Outlet /></Layout>, // could be a layout instead fragment
     errorElement: <NotFound />,
     children: [
       {
         index: true,
         element: <Homepage />
       },
+      {
+        path: '/',
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: 'content',
+            element: <SummaryRoutes Component={Summary} />,
+          },
+          {
+            path: 'content/react',
+            element: <SummaryRoutes Component={ReactPage} />
+          },
+          {
+            path: 'content/javascript',
+            element: <SummaryRoutes Component={JavaScript} />
+          },
+          {
+            path: 'content/css',
+            element: <SummaryRoutes Component={CSS} />
+          },
+        ]
+      }
     ]
   },
   {
@@ -65,28 +88,6 @@ export const router = createBrowserRouter([
         path: 'signup',
         element: <SignUp />
       }
-    ]
-  },
-  {
-    path: '/',
-    element: <PrivateRoute />,
-    children: [
-      {
-        path: 'content',
-        element: <SummaryRoutes Component={Summary} />,
-      },
-      {
-        path: 'content/sedans',
-        element: <SummaryRoutes Component={Sedans} />
-      },
-      {
-        path: 'content/suvs',
-        element: <SummaryRoutes Component={Suvs} />
-      },
-      {
-        path: 'content/luxury',
-        element: <SummaryRoutes Component={Luxury} />
-      },
     ]
   }
 ])

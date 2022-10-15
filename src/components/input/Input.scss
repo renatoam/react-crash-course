@@ -2,7 +2,7 @@
   padding-block: var(--pd-md);
   padding-inline: var(--pd-lg);
   border-radius: .4rem;
-  color: var(--dark-blue);
+  color: var(--dark-text);
   border: .1rem solid var(--grayish-blue);
   margin-block-end: 3rem;
   font-size: var(--fs-body);
@@ -12,8 +12,8 @@
   &:focus,
   &:focus-visible,
   &:focus-within {
-    border: .1rem solid var(--blue);
-    outline: var(--blue) auto .1rem;
+    border: .1rem solid var(--dark-cyan);
+    outline: var(--dark-cyan) auto .1rem;
   }
 
   &::placeholder {

@@ -1,8 +1,8 @@
 .auth {
   height: 100vh;
   width: 100vw;
-  background-color: var(--bright-orange);
-  background-image: url('../../../public/images/bg-intro-desktop.png');
+  background-color: var(--cyan);
+  background-image: url('../../../public/images/blob-auth-haikei.svg');
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
@@ -29,3 +29,45 @@
     flex-direction: column;
   }
 }
+
+.sign {
+  flex: 1 1 max(20%, 30rem);
+}
+
+.form > p {
+  color: var(--dark-text);
+  font-size: 1.2rem;
+
+  span {
+    font-weight: bold;
+    color: var(--highlight-text);
+  }
+}
+
+.continue {
+  width: 100%;
+  background-color: var(--dark-cta);
+  color: var(--light-text);
+  text-transform: uppercase;
+  padding-block: 1rem;
+  margin-block-end: 1rem;
+  font-size: var(--fs-body);
+  border-radius: .4rem;
+  transition: var(--transition);
+
+  &:hover {
+    background-color: var(--dark-cta-hover);
+  }
+
+  &.helper {
+    background-color: transparent;
+    border: .2rem solid var(--dark-cta);
+    color: var(--dark-cta);
+
+    &:hover {
+      background-color: var(--light-cta);
+      border: .2rem solid var(--light-cta);
+    }
+  }
+}
+
