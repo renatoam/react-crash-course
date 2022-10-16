@@ -2,6 +2,7 @@ import { Login, Logout } from "@icon-park/react"
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../../context/authContext"
 import './Layout.scss'
+import PropTypes from 'prop-types'
  
 export default function Layout({ children }) {
   const { user } = useAuthContext()
@@ -47,4 +48,8 @@ export default function Layout({ children }) {
       </footer>
     </section>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.element
 }

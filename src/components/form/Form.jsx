@@ -1,6 +1,7 @@
 import { forwardRef } from "react"
 import { useFormContext } from "../../context/formContext"
 import './Form.scss'
+import PropTypes from 'prop-types'
  
 const Form = forwardRef(({ children, ...rest }, ref) => {
   const { formError } = useFormContext()
@@ -12,3 +13,8 @@ const Form = forwardRef(({ children, ...rest }, ref) => {
 })
 
 export default Form
+
+Form.propTypes = {
+  children: PropTypes.element,
+  rest: PropTypes.object
+}

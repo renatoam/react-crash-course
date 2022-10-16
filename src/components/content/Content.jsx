@@ -1,5 +1,6 @@
 import './Content.scss'
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 export default function Content({ model, previous, next }) {
   const { type, name, image, description } = model
@@ -23,4 +24,15 @@ export default function Content({ model, previous, next }) {
       </section>
     </section>
   )
+}
+
+Content.propTypes = {
+  model: PropTypes.shape({
+    type: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.string,
+  }),
+  previous: PropTypes.string,
+  next: PropTypes.string
 }

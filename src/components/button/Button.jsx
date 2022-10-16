@@ -1,4 +1,5 @@
 import './Button.scss'
+import PropTypes from 'prop-types'
 
 export default function Button(props) {
   const { className, loading, helper = false, children, ...rest } = props
@@ -13,4 +14,12 @@ export default function Button(props) {
       {loading && !helper ? 'Processing...' : children}
     </button>
   )
+}
+
+Button.propTypes = {
+  className: PropTypes.string,
+  loading: PropTypes.bool,
+  helper: PropTypes.bool,
+  children: PropTypes.element,
+  rest: PropTypes.object
 }

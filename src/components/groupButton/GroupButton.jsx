@@ -1,4 +1,5 @@
 import './GroupButton.scss'
+import PropTypes from 'prop-types'
  
 export default function GroupButton({ children }) {
   return (
@@ -6,4 +7,8 @@ export default function GroupButton({ children }) {
       {children}
     </section>
   )
+}
+
+GroupButton.propTypes = {
+  children: PropTypes.element
 }

@@ -1,5 +1,6 @@
 import { forwardRef } from "react"
 import './Input.scss'
+import PropTypes from 'prop-types'
  
 const Input = forwardRef((props, ref) => {
   const {
@@ -27,3 +28,12 @@ const Input = forwardRef((props, ref) => {
 })
 
 export default Input
+
+Input.propTypes = {
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  errorMessage: PropTypes.string,
+  error: PropTypes.bool,
+  rest: PropTypes.object
+}

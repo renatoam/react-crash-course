@@ -1,5 +1,6 @@
 import './Container.scss'
 import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Container extends Component {
   constructor({ children }){
@@ -14,4 +15,8 @@ export default class Container extends Component {
       </section>
     )
   }
+}
+
+Container.propTypes = {
+  children: PropTypes.element
 }
