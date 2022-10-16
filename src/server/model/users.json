@@ -20,5 +20,13 @@
     "email": "renato@alves.com",
     "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2NjU4NzIzNjMsImV4cCI6MTY2NTg4Njc2M30.YvbFUXoSu5tN4qBNWs4VRpP9uEfAu31FJsYXKS1Yr3I"
+  },
+  {
+    "firstname": "Shiryu",
+    "lastname": "de Dragão",
+    "id": "8c08d542-dd3d-4621-aad0-d5d17b7d1479",
+    "email": "shiryu@dragon.com",
+    "password": "$2b$10$oxR.M9P.P1vOMmH8/H3aPuxOXzfu9DWEmzm0yNvjh9LMDubxk7Sk6",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoaXJ5dUBkcmFnb24uY29tIiwiaWF0IjoxNjY1ODg3NjE4LCJleHAiOjE2NjU4OTEyMTh9.ne8IV3NGPT4N8OrwJWDJBa5Ft5UAXRXwsNl81rU0T0Q"
   }
 ]

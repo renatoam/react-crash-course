@@ -5,12 +5,10 @@ import Form from "../../components/form/Form"
 import Input from "../../components/input/Input"
 import { useAuthContext } from "../../context/authContext"
 import { useFormContext } from "../../context/formContext"
-import { useNotificationContext } from "../../context/notificationContext"
  
 export default function Authenticate() {
   const { loading, setLoading, setFormError } = useFormContext()
   const { authenticate } = useAuthContext()
-  const { notify } = useNotificationContext()
 
   const email = useRef(null)
   const form = useRef(null)
@@ -31,17 +29,16 @@ export default function Authenticate() {
     event.preventDefault()
 
     setLoading(true)
-    
-    try {
-      await authenticate(email.current.value)
-      notify('success', 'Authenticated!')
-      return navigate('/auth/signin')
-    } catch (error) {
-      notify('error', error.message)
-      form.current.reset()
-      setFormError(true)
-      setLoading(false)
+
+    const response = await authenticate(email.current.value)
+
+    if (response) {
+      return navigate('/auth/signin', { replace: true })      
     }
+
+    form.current.reset()
+    setFormError(true)
+    setLoading(false)
   }
 
   return (

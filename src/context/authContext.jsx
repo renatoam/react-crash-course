@@ -15,8 +15,20 @@ export const AuthProvider = ({ children }) => {
     const response = await authenticateService(email)
 
     if (response?.error) {
-      throw Error(response.message)
+      dispatch(setNotifications({
+        status: 'error',
+        message: response.message
+      }))
+
+      return false
     }
+
+    dispatch(setNotifications({
+      status: 'success',
+      message:  'Usuário autenticado. Continue com o login.'
+    }))
+    
+    return true
   }
 
   async function signUp(user) {
@@ -31,7 +43,7 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    dispatch(setUser(response))
+    dispatch(setUser(response.user))
     dispatch(setNotifications({
       status: 'success',
       message:  `Bem-vindo, ${response.firstname ?? 'camarada'}`
