@@ -1,14 +1,17 @@
-import { useEffect, useRef, useState } from "react"
 import { Delete } from "@icon-park/react"
+import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { useEffect, useRef, useState } from "react"
+
+import Info from "../auth/info/Info"
 import { Button, Text } from "../../components"
 import Form from "../../components/form/Form"
 import GroupButton from "../../components/groupButton/GroupButton"
 import Input from "../../components/input/Input"
+
 import { useAuthContext } from "../../context/authContext"
 import { useFormContext } from "../../context/formContext"
 import { useNotificationContext } from "../../context/notificationContext"
-import Info from "../auth/info/Info"
 
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
 const initialUserState = {
@@ -27,9 +30,12 @@ export default function SignUp() {
   const firstnameRef = useRef(null)
   const form = useRef(null)
 
+  const userState = useSelector(state => state.user)
   const navigate = useNavigate()
+
   const [user, setUser] = useState(initialUserState)
   const [registrationInitialized, setRegistrationInitialized] = useState(false)
+  const [matchPassword, setMatchPassword] = useState({ value: '', match: false })
 
   const validation = {
     firstname: {
@@ -59,6 +65,12 @@ export default function SignUp() {
     setRegistrationInitialized(false)
   }, [])
 
+  useEffect(() => {
+    if (userState) {
+      return navigate('/content', { replace: true })
+    }
+  }, [userState, navigate])
+
   const handleClearForm = () => {
     setFormError(false)
     setLoading(false)
@@ -81,13 +93,10 @@ export default function SignUp() {
 
     setLoading(true)
     
-    try {
-      delete user.confirmPassword
-      await signUp(user)
-      notify('success', 'Welcome!')
-      return navigate('/cards')
-    } catch (error) {
-      notify('error', error.message)
+    delete user.confirmPassword
+    const response = await signUp(user)
+
+    if (!response) {
       setFormError(true)
       setLoading(false)
     }
@@ -99,6 +108,15 @@ export default function SignUp() {
 
     if (!registrationInitialized) {
       setRegistrationInitialized(true)
+    }
+
+    if (name === 'confirmPassword') {
+      setMatchPassword(() => {
+        return {
+          value: value,
+          match: value === user.password
+        }
+      })
     }
 
     setUser(currentUser => {
@@ -149,7 +167,7 @@ export default function SignUp() {
           name="confirmPassword"
           type="password"
           onChange={handleChange}
-          error={validation.confirmPassword.error}
+          error={user.confirmPassword?.length > 0 && !matchPassword.match}
           errorMessage={validation.confirmPassword.message}
         />
         <GroupButton>

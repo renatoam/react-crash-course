@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { useDispatch } from "react-redux";
-import { authenticateService, signInService, signUpService } from "../services/users";
+import { authenticateService, signInService, signUpService } from "../services/auth";
 import { setNotifications } from "../store/notificationsSlice";
 import { setUser } from "../store/userSlice";
 
@@ -23,8 +23,21 @@ export const AuthProvider = ({ children }) => {
     const response = await signUpService(user)
 
     if (response?.error) {
-      throw Error(response.message)
+      dispatch(setNotifications({
+        status: 'error',
+        message: response.message
+      }))
+
+      return false
     }
+
+    dispatch(setUser(response))
+    dispatch(setNotifications({
+      status: 'success',
+      message:  `Bem-vindo, ${response.firstname ?? 'camarada'}`
+    }))
+    
+    return true
   }
 
   async function signIn(email, password) {
@@ -44,6 +57,7 @@ export const AuthProvider = ({ children }) => {
       status: 'success',
       message:  `Olá de novo, ${response.firstname ?? 'estudante'}!`
     }))
+
     return true
   }
 
