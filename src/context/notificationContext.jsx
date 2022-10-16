@@ -14,7 +14,6 @@ export const NotificationProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log('Notifications', notifications)
     if (notifications) {
       toast[notifications?.status](notifications?.message, { theme: 'colored' })
     }
