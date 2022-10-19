@@ -18,11 +18,13 @@
 
   --dark-text: var(--very-dark-cyan);
   --light-text: var(--light-gray);
-  --highlight-text: var(--cyan);
+  --highlight-text: var(--cyan-hover);
 
   --dark-bg: var(--very-dark-cyan);
   --light-bg: var(--light-gray);
 
+  --default-cta: var(--cyan-hover);
+  --default-cta-hover: var(--dark-cyan-hover);
   --dark-cta: var(--dark-cyan);
   --light-cta: var(--cyan);
   --dark-cta-hover: var(--dark-cyan-hover);
@@ -30,6 +32,8 @@
 
   --border: var(--grayish-blue);
   --border-active: var(--dark-cyan);
+  
+  --border-radius-card: 1rem;
 
   --fs-error: clamp(1.2rem, 3vw + .1rem, 1.4rem);
   --fs-body: clamp(1.4rem, 4vw + .1rem, 2rem);

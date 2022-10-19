@@ -10,13 +10,13 @@ $header-height: 10rem;
 }
 
 .hero {
-  --container-max: 90vw;
+  --container-max: min(90%, 144rem);
+  width: min(100% - 3rem, var(--container-max, 144rem));
+  margin-inline: auto;
 
   align-items: center;
   display: flex;
   height: calc(100vh - $header-height);
-  width: min(100% - 3rem, var(--container-max, 144rem));
-  margin-inline: auto;
   position: relative;
   background-color: transparent;
   gap: 2rem;
@@ -24,6 +24,9 @@ $header-height: 10rem;
   &__information {
     flex: 1 1 calc(100% - 3rem);
     margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
 
     h2 {
       font-size: clamp(3.2rem, 12vw + .1rem, 6.4rem);
@@ -31,6 +34,11 @@ $header-height: 10rem;
 
     & > *:not(button) {
       color: var(--dark-text);
+    }
+
+    .highlight {
+      color: var(--cyan-hover);
+      font-weight: bold;
     }
   }
 
@@ -64,28 +72,32 @@ $header-height: 10rem;
   }
 
   &__call-to-action {
-    background-color: var(--dark-cta);
+    background-color: var(--default-cta);
     color: var(--light-text);
     transition: var(--transition);
     padding-block: 1rem;
     padding-inline: 2rem;
     border-radius: 1rem;
     text-transform: uppercase;
-    width: min(100% - 2rem, 40vw);
+    width: max(30%, 20ch);
     margin-block: 2rem;
-    font-size: var(--fs-body-lg);
+    font-size: var(--fs-body);
 
     @media (max-width: 46em) {
       width: 100%;
     }
   
     &:hover {
-      background-color: var(--dark-cta-hover);
+      background-color: var(--default-cta-hover);
     }
   }
 }
 
 .course {
+  --container-max: min(90%, 144rem);
+  width: min(100% - 3rem, var(--container-max, 144rem));
+  margin-inline: auto;
+
   &__title {
     color: var(--dark-text);
     font-size: 4.8rem;
@@ -109,14 +121,12 @@ $header-height: 10rem;
 .contents {
   --min: 20ch;
   --gap: 1rem;
-  --container-max: 90vw;
   
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
   margin-inline: auto;
   padding-block: 10rem;
-  width: min(100% - 3rem, var(--container-max, 144rem));
   
   & > * {
     flex: 1 1 var(--min);
@@ -131,10 +141,19 @@ $header-height: 10rem;
       flex-direction: column;
       gap: 1rem;
       color: var(--dark-text);
+      transition: var(--transition);
+      border: .1rem solid transparent;
+      border-radius: var(--border-radius-card);
+      padding: var(--pd-md);
+      min-height: 100%;
 
       @media (max-width: 46em) {
         align-items: center;
         text-align: center;
+      }
+
+      &:hover {
+        border: .1rem solid var(--grayish-blue);
       }
     }
   }

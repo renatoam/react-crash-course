@@ -6,9 +6,9 @@ export default function Homepage() {
     <section className="home">
       <article className="hero">
         <section className="hero__information">
-          <h2 className="hero__title">React Crash Course</h2>
-          <p className="hero__description">Descubra os pilares e se aprofunde nas principais features do React. E ainda, conheça alguns dos principais conceitos de programação e desenvolvimento web.</p>
-          <button className="hero__call-to-action">Começar</button>
+          <h2 className="hero__title">Sejam bem-vindos ao fabuloso mundo do React JS!</h2>
+          <p className="hero__description">Descubra os pilares e as principais features da biblioteca/framework mais usada do mercado. Isso e muito mais neste <span className="highlight">React Crash Course.</span></p>
+          <button className="hero__call-to-action">Comece já!</button>
         </section>
         <figure className="hero__image">
           <img src="/images/react.svg" alt="React Logo" />
@@ -24,7 +24,7 @@ export default function Homepage() {
                 <TwoEllipses />
               </figure>
               <h3>O que é React?</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores error animi odio tempora enim, sapiente.</p>
+              <p>Afinal, React é uma biblioteca ou um framework? Aliás, qual a diferença entre biblioteca e framework? Descubra agora.</p>
             </a>
           </section>
           <section className="contents__card">
@@ -33,7 +33,7 @@ export default function Homepage() {
                 <Tool />
               </figure>
               <h3>React Básico</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat fugiat excepturi cum, itaque veritatis odit blanditiis aut quis.</p>
+              <p>Descubra agora as principais features do React e como usá-las no dia-a-dia. JSX, props, hooks e muito mais.</p>
             </a>
           </section>
           <section className="contents__card">
@@ -42,7 +42,7 @@ export default function Homepage() {
                 <TreeList />
               </figure>
               <h3>React Dinâmico</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, deleniti enim officia eum iste quidem quos architecto.</p>
+              <p>Aprenda sobre gerenciamento de estado, listas dinâmicas e renderização condicional. Técnicas essenciais para o desenvolvimento web.</p>
             </a>
           </section>
           <section className="contents__card">
@@ -51,7 +51,7 @@ export default function Homepage() {
                 <DataDisplay />
               </figure>
               <h3>Manipulando Dados</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta hic, assumenda in at repellat accusamus corporis sint necessitatibus quis quo.</p>
+              <p>Aprenda a consumir APIs externas no React, criar rotas para sua aplicação, além de manipular formulários e eventos.</p>
             </a>
           </section>
           <section className="contents__card">
@@ -60,7 +60,7 @@ export default function Homepage() {
                 <LatticePattern />
               </figure>
               <h3>React Patterns</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae mollitia recusandae a qui veniam, velit possimus.</p>
+              <p>Com grandes poderes vem grandes responsabilidades. Flexibilidade demais pode ser um perigo. Aprenda a organizar seu projeto e prevenir o caos.</p>
             </a>
           </section>
         </section>
