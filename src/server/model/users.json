@@ -22,19 +22,19 @@
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2NjU4NzIzNjMsImV4cCI6MTY2NTg4Njc2M30.YvbFUXoSu5tN4qBNWs4VRpP9uEfAu31FJsYXKS1Yr3I"
   },
   {
-    "firstname": "Shiryu",
-    "lastname": "de Dragão",
-    "id": "8c08d542-dd3d-4621-aad0-d5d17b7d1479",
-    "email": "shiryu@dragon.com",
-    "password": "$2b$10$oxR.M9P.P1vOMmH8/H3aPuxOXzfu9DWEmzm0yNvjh9LMDubxk7Sk6",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoaXJ5dUBkcmFnb24uY29tIiwiaWF0IjoxNjY1ODg3NjE4LCJleHAiOjE2NjU4OTEyMTh9.ne8IV3NGPT4N8OrwJWDJBa5Ft5UAXRXwsNl81rU0T0Q"
-  },
-  {
     "firstname": "Shun",
     "lastname": "de Andrômeda",
     "id": "84f6a7c9-fa2e-47a5-8943-451eaba6585f",
     "email": "shun@andromeda.com",
     "password": "$2b$10$gpQuGd2vJi0LKr.ieQ9ioOaxnJrG9Ldn.8LMsjYV0w7RwGtQe53.u",
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNodW5AYW5kcm9tZWRhLmNvbSIsImlhdCI6MTY2NTg4OTMyNywiZXhwIjoxNjY1ODkyOTI3fQ.b8OgMbMoaioMB_Moc6pInYAbr3BnTNUGu40gXLyZc_0"
+  },
+  {
+    "firstname": "Shiryu",
+    "lastname": "de Dragão",
+    "id": "8c08d542-dd3d-4621-aad0-d5d17b7d1479",
+    "email": "shiryu@dragon.com",
+    "password": "$2b$10$oxR.M9P.P1vOMmH8/H3aPuxOXzfu9DWEmzm0yNvjh9LMDubxk7Sk6",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoaXJ5dUBkcmFnb24uY29tIiwiaWF0IjoxNjY2MDA2MTM0LCJleHAiOjE2NjYwMjA1MzR9.vYoaHvbU9Azb1HwKbjwLEWGPaipupTSmpWk3FPeJeOw"
   }
 ]

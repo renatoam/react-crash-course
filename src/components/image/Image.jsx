@@ -11,6 +11,11 @@ export default function Image(props) {
   )
 }
 
+Image.defaultProps = {
+  src: '../images/placeholder.jpg',
+  alt: 'Imagem alternativa'
+}
+
 Image.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string

@@ -20,6 +20,6 @@ Button.propTypes = {
   className: PropTypes.string,
   loading: PropTypes.bool,
   helper: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   rest: PropTypes.object
 }

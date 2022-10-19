@@ -38,15 +38,6 @@ const PrivateRoute = () => {
   )
 }
 
-
-// Refresh Token
-// Redux Dev Tools
-// React Dev Tools
-// Custom Hooks
-// PropTypes
-// Logout
-// Notifications
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -58,7 +49,6 @@ export const router = createBrowserRouter([
         element: <Homepage />
       },
       {
-        path: '/',
         element: <PrivateRoute />,
         children: [
           {
