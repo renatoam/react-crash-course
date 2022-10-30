@@ -10,7 +10,7 @@ export default function Authenticate() {
     <section className="sign">
       <Form onSubmit={handleSubmit} onFocus={handleClearForm} ref={form}>
         <Input placeholder="Email" name="email" type="email" ref={email} />
-        <Button className="continue" type="submit" loading={loading}>Continue</Button>
+        <Button type="submit" loading={loading}>Continue</Button>
       </Form>
     </section>
   )

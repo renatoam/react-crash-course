@@ -4,7 +4,6 @@ import { Button, Text } from "../../components"
 import Form from "../../components/form/Form"
 import GroupButton from "../../components/groupButton/GroupButton"
 import Input from "../../components/input/Input"
-import Info from "../auth/info/Info"
 
 import useSignUp from "../../hooks/useSignUp"
  
@@ -22,7 +21,6 @@ export default function SignUp() {
 
   return (
     <section className="sign">
-      <Info />
       <Form onSubmit={handleSubmit} ref={refs.form}>
         <Input
           placeholder="First Name"
@@ -63,17 +61,15 @@ export default function SignUp() {
           error={isConfirmPasswordActive && !matchPassword.match}
           errorMessage={validation.confirmPassword.message}
         />
-        <GroupButton>
+        <GroupButton flex>
           <Button
-            className="continue"
             type="submit"
             loading={loading}
           >
             Sign Up
           </Button>
           <Button
-            className="continue helper"
-            helper
+            alternative
             loading={loading}
             onClick={handleClearForm}
           >

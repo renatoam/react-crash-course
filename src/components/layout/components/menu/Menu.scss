@@ -1,0 +1,77 @@
+@use "../../../../styles/variables" as v;
+
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: v.$z-modal;
+  height: 100%;
+  width: min(70vw, 30ch);
+  background-color: v.$app-background;
+  transform: translateX(-100%);
+  transition: v.$transition;
+
+  &.opened {
+    transform: translateX(0);
+
+    & + .overlay {
+      transform: translateX(0);
+      opacity: v.$op-overlay;
+    }
+  }
+
+  &-trigger {
+    padding-block: v.$sp-xs;
+    padding-inline: v.$sp-sm;
+    cursor: pointer;
+
+    > .icon {
+      font-size: v.$fs-heading4;
+    }
+  }
+
+  &__link {
+    padding-block: v.$sp-lg;
+    padding-inline: v.$sp-xl;
+    background-color: v.$list-background;
+    transition: v.$transition;
+    cursor: pointer;
+    position: relative;
+
+    &:not(:last-child) {
+      border-bottom: .1rem solid v.$border;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      background-color: v.$list-background-hover;
+    }
+
+    &:active {
+      background-color: v.$list-background-highlight;
+    }
+
+    &.selected {
+      &::before,
+      &::after {
+        content: '';
+        background-color: v.$solid-background;
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: .8rem;
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+  }
+}

@@ -1,22 +1,21 @@
 import './Container.scss'
-import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class Container extends Component {
-  constructor({ children }){
-    super()
-    this.children = children
-  }
+export default function Container(props) {
+  const { type, children } = props
 
-  render() {
-    return (
-      <section className="container">
-        {this.children}
-      </section>
-    )
-  }
+  return (
+    <section className={`container ${type}`}>
+      {children}
+    </section>
+  )
+}
+
+Container.defaultProps = {
+  type: 'elements'
 }
 
 Container.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.element]),
+  type: PropTypes.oneOf(['text', 'elements'])
 }

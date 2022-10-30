@@ -1,0 +1,10 @@
+@use "../../../../styles/variables" as v;
+
+.home {
+  width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 46em) {
+    text-align: center;
+  }
+}

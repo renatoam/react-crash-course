@@ -1,0 +1,161 @@
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+*/
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-inline: 0;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+/* My preferred font-size, because I can use rem by multiplying by 10 */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+/* The WCAG criteria states that line-height should be at least 1.5. */
+/* MacOS is the only operating system to use subpixel-antialiasing, 
+and so this rule has no effect on Windows, Linux, or mobile devices */
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.66;
+  text-rendering: optimizeSpeed;
+}
+
+/* % instead vh just because vh isn't a good fit for mobile yet */
+/* #__next if you're woking on a NextJS project */
+/* #root if you're woking on a CRA or Vite project */
+html,
+body,
+#__next,
+#root {
+  height: 100%;
+}
+
+/* Avoid overflow when there is a large word in a narrow screen */
+p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For medias to not be able to exceed their container */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* For React/Next users. Allows us to create a new stacking context without needing to set a z-index. Ensure that certain high-priority elements (modals, dropdowns, tooltips) will always show up above the other elements in our application. */
+#root, #__next {
+  isolation: isolate;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* This is a solution to ensure a perceivable button border
+for users with Windows High Contrast mode enabled. */
+@media screen and (-ms-high-contrast: active) {
+  button {
+    border: 2px solid currentcolor;
+  }
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  line-break: after-white-space;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}

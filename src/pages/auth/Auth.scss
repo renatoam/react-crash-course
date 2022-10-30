@@ -1,73 +1,56 @@
+@use "../../styles/variables" as v;
+
 .auth {
-  height: 100vh;
+  height: fit-content;
   width: 100vw;
   background-color: var(--cyan);
   background-image: url('../../../public/images/blob-auth-haikei.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  display: grid;
-  place-content: center;
-
-  @media (max-width: 60em) {
-    place-content: unset;
-    padding: var(--pd-md);
+  padding-block: v.$sec-pd-bl;
+  
+  @media (min-width: 49em), (min-height: 60em) {
+    display: grid;
+    place-content: center;
+    height: 100vh;
   }
 
   h2 {
-    font-size: 5.6rem;
+    font-size: v.$fs-heading2;
   }
 }
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: clamp(2rem, 10vw, 5rem);
   margin-inline: auto;
-  max-width: 80vw;
+  max-inline-size: 90vw;
 
-  @media (max-width: 60em) {
-    flex-direction: column;
+  @media (min-width: 49em) {
+    flex-direction: row;
   }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  gap: 2rem;
 }
 
 .sign {
-  flex: 1 1 max(20%, 30rem);
+  flex: 1 1 100%;
+  width: 100%;
 }
 
 .form > p {
-  color: var(--dark-text);
-  font-size: 1.2rem;
+  font-size: v.$fs-small;
 
   span {
     font-weight: bold;
-    color: var(--highlight-text);
-  }
-}
-
-.continue {
-  width: 100%;
-  background-color: var(--dark-cta);
-  color: var(--light-text);
-  text-transform: uppercase;
-  padding-block: 1rem;
-  margin-block-end: 1rem;
-  font-size: var(--fs-body);
-  border-radius: .4rem;
-  transition: var(--transition);
-
-  &:hover {
-    background-color: var(--dark-cta-hover);
-  }
-
-  &.helper {
-    background-color: transparent;
-    border: .2rem solid var(--dark-cta);
-    color: var(--dark-cta);
-
-    &:hover {
-      background-color: var(--light-cta);
-      border: .2rem solid var(--light-cta);
-    }
+    color: v.$text-highlighted;
   }
 }
 

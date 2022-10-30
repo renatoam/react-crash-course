@@ -11,7 +11,7 @@ export default function SignIn() {
       <Form onSubmit={handleSubmit} onFocus={handleClearForm} ref={refs.form}>
         <Input placeholder="Email" name="email" type="email" ref={refs.email} />
         <Input placeholder="Password" name="password" type="password" ref={refs.password} />
-        <Button className="continue" type="submit" loading={loading}>Sign In</Button>
+        <Button type="submit" loading={loading}>Sign In</Button>
       </Form>
     </section>
   )

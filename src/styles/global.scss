@@ -1,0 +1,30 @@
+@use "fonts";
+@use "reset";
+@use "variables" as v;
+@use "vendors";
+
+body {
+  font-family: v.$ff-default;
+  font-size: v.$fs-body;
+  font-weight: v.$fw-body;
+  line-height: v.$line-height;
+  color: v.$text-dark-low;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+.overlay {
+  z-index: v.$z-overlay;
+  width: 100%;
+  height: 100%;
+  background-color: v.$overlay;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: opacity .4s ease-in-out;
+  will-change: opacity;
+}

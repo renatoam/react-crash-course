@@ -1,7 +1,7 @@
+import './Auth.scss'
 import { Outlet } from "react-router-dom"
 import { FormProvider } from "../../context/formContext"
-import './Auth.scss'
-import Intro from "./intro"
+import Intro from "./intro/Intro"
 
 export default function Auth() {
   return (

@@ -1,6 +1,4 @@
-import { useEffect } from "react"
-import { useSelector } from "react-redux"
-import { createBrowserRouter, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { createBrowserRouter, Outlet } from 'react-router-dom'
 import Layout from "../components/layout/Layout"
 import { SummaryProvider } from "../context/summaryContext"
 import Auth from "../pages/auth/Auth"
@@ -13,6 +11,7 @@ import ReactPage from "../pages/react/React"
 import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
 import Summary from "../pages/summary/Summary"
+import PrivateRoute from "./PrivateRoute"
 
 const SummaryRoutes = ({ Component }) => {
   return (
@@ -22,26 +21,10 @@ const SummaryRoutes = ({ Component }) => {
   )
 }
 
-const PrivateRoute = () => {
-  const user = useSelector(state => state.user)
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  useEffect(() => {
-    if (!user) {
-      return navigate('/auth/signin', { state: { from: location }, replace: true })
-    }
-  }, [user, location, navigate])
-
-  return (
-    <Outlet />
-  )
-}
-
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout><Outlet /></Layout>, // could be a layout instead fragment
+    element: <Layout><Outlet /></Layout>,
     errorElement: <NotFound />,
     children: [
       {

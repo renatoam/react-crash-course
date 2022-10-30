@@ -1,0 +1,18 @@
+@use "../../../../styles/variables" as v;
+
+.login {
+  font-size: v.$fs-heading4;
+  background-color: transparent;
+
+  a {
+    color: var(--dark-text);
+    display: block;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+
+    span {
+      display: grid;
+      place-content: center;
+    }
+  }
+}

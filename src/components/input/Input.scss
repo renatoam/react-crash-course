@@ -1,28 +1,31 @@
+@use "../../styles/variables" as v;
+
 .input {
-  padding-block: var(--pd-md);
-  padding-inline: var(--pd-lg);
-  border-radius: .4rem;
-  color: var(--dark-text);
-  border: .1rem solid var(--grayish-blue);
-  margin-block-end: 3rem;
-  font-size: var(--fs-body);
-  font-family: var(--ff-body);
+  background-color: v.$input-background;
+  color: v.$text-dark-low;
+  border: v.$bd-default solid v.$input-border;
+  border-radius: v.$br-xs;
+  height: clamp(4.4rem, 3.5vw + .1rem, 6.4rem);
   width: 100%;
+  padding-inline: v.$input-pd;
+  margin-block-end: clamp(v.$sp-lg, 1.5vw + .1rem, v.$sp-xl);
+  font-size: v.$fs-body;
+  font-family: v.$ff-default;
 
   &:focus,
   &:focus-visible,
   &:focus-within {
-    border: .1rem solid var(--dark-cyan);
-    outline: var(--dark-cyan) auto .1rem;
+    border: v.$bd-large solid v.$input-border-focus;
+    outline: v.$input-border-focus auto v.$bd-large;
   }
 
   &::placeholder {
-    color: var(--grayish-blue);
+    color: v.$input-placeholder;
   }
 
   &.error {
-    border: .2rem solid var(--red);
-    outline: var(--red) auto 0.2rem;
+    border: v.$bd-large solid v.$error;
+    outline: v.$error auto v.$bd-large;
   }
 
   &-control {
@@ -31,9 +34,9 @@
 
   & + .message {
     position: absolute;
-    font-size: var(--fs-error);
-    color: var(--red);
+    font-size: v.$fs-small;
+    color: v.$error;
     left: 0;
-    bottom: 0.5rem;
+    bottom: v.$sp-xs;
   }
 }
