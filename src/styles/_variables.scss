@@ -1,0 +1,132 @@
+@use "colors" as c;
+
+/* Color Palette */
+
+// Backgrounds
+$app-background: c.$cyan1;
+$app-subtle-background: c.$cyan2;
+$card-background: c.$cyan1;
+$card-subtle-background: c.$cyan2;
+
+$list-background: c.$cyan3;
+$list-background-hover: c.$cyan4;
+$list-background-active: c.$cyan5;
+$list-background-highlight: c.$cyan6;
+
+$solid-background: c.$cyan9;
+$solid-background-hover: c.$cyan10;
+
+// Texts
+$text-dark-low: c.$cyan11;
+$text-dark-high: c.$cyan12;
+$text-light-low: c.$cyan1;
+$text-light-high: c.$cyan2;
+$text-highlighted: c.$cyan10;
+// high and low refer to contrast
+
+// Call to Action
+$cta-default: $solid-background;
+$cta-default-color: $text-light-high;
+$cta-hover: $solid-background-hover;
+$cta-hover-color: $text-light-low;
+$cta-active: c.$cyan11;
+$cta-active-color: $text-light-low;
+$cta-focus: c.$cyan6; // this is not for bg, is for box shadow
+$cta-disabled: c.$cyan7;
+$cta-disabled-color: c.$cyan9;
+$cta-alternative-color: c.$cyan9;
+$cta-alternative-border: c.$cyan9;
+$cta-alternative-hover-color: c.$cyan11;
+$cta-alternative-hover-border: c.$cyan11;
+$cta-alternative-disabled-border: c.$cyan7;
+$cta-alternative-disabled-color: c.$cyan7;
+
+// Input
+$input-background: c.$cyan1;
+$input-border: c.$cyan7;
+$input-border-focus: c.$cyan7;
+$input-border-hover: c.$cyan8;
+$input-placeholder: c.$cyan6;
+
+/* Borders */
+$border: c.$cyan6;
+$border-focus: c.$cyan7;
+$border-hover: c.$cyan8;
+
+/* Helpers */
+$success: c.$green9;
+$error: c.$red9;
+$warning: c.$amber9;
+$info: c.$indigo9;
+
+// Misc
+$overlay: c.$slate12;
+
+/*
+  Typography / Typescale
+  Base size: 16px
+  Size em rem: 16 / 10 so we can use 10 base, it's easier
+  Scale: 1.333 (Perfect Fourth) clamped with 1.250 (Major Third)
+  Family: Montserrat
+  Typeface Ref.: Montserrat Bold (800)
+*/
+
+$fs-heading1: clamp(5.052rem, 12vw + .1rem, 6.734rem);
+$fs-heading2: clamp(3.79rem, 10vw + .1rem, 5.052rem);
+$fs-heading3: clamp(2.843rem, 6vw + .1rem, 3.79rem);
+$fs-heading4: clamp(2.133rem, 4vw + .1rem, 2.843rem);
+$fs-body: clamp(1.6rem, 3vw + .1rem, 2.133rem);
+$fs-small: clamp(1.2rem, 2vw + .1rem, 1.6rem);
+
+$ff-display: 'Crimson Pro', serif;
+$ff-default: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+
+$fw-heading: 800;
+$fw-body: 400;
+$fw-small: 600;
+
+$line-height-heading: 1.3;
+$line-height: 1.65;
+$line-length: 66ch;
+$line-length-multi: 45ch;
+
+// Spacing
+$sp-xs: .4rem;
+$sp-sm: .8rem;
+$sp-md: 1.6rem;
+$sp-lg: 2.4rem;
+$sp-xl: 3.2rem;
+$sp-xxl: 4rem;
+$sp-xxxl: 4.8rem;
+
+// Padding
+$btn-pd-bl: clamp($sp-sm, 4vw + .1rem, $sp-md);
+$btn-pd-ln: clamp($sp-md, 6vw + .1rem, $sp-lg);
+$sec-pd-bl: clamp($sp-xxl, 8vw + .1rem, $sp-xxxl);
+$input-pd: clamp($sp-xs, 2vw + .1rem, $sp-md);
+
+// Border Radius
+$br-xs: .4rem;
+$br-sm: .8rem;
+$br-md: 1.6rem;
+$br-lg: 2.4rem;
+$br-xl: 3.2rem;
+
+// Border
+$bd-default: .1rem;
+$bd-large: .2rem;
+$bd-cta: .4rem;
+
+// Transition
+$transition: all 0.4s ease-in-out;
+
+// Z Index
+$z-modal: 50;
+$z-overlay: 40;
+$z-background: -1;
+
+// Shadow
+$sh-modal: 0 0 1rem 1rem c.$slate8;
+
+// Opacity
+$op-overlay: .4;

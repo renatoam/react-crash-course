@@ -1,0 +1,53 @@
+@use "../../styles/variables" as v;
+
+.h1 {
+  font-size: v.$fs-heading3;
+
+  @media (min-width: 49em) {
+    font-size: v.$fs-heading1;
+  }
+}
+
+.h2 {
+  font-size: v.$fs-heading4;
+
+  @media (min-width: 49em) {
+    font-size: v.$fs-heading2;
+  }
+}
+
+.h3 {
+  font-size: v.$fs-body;
+  font-weight: bold;
+
+  @media (min-width: 49em) {
+    font-size: v.$fs-heading3;
+  }
+}
+
+.h4 {
+  font-size: v.$fs-body;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  @media (min-width: 49em) {
+    font-size: v.$fs-heading4;
+    text-transform: none;
+  }
+}
+
+.h5,
+.h6 {
+  font-size: v.$fs-body;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  @media (min-width: 49em) {
+    font-size: v.$fs-heading4;
+  }
+}
+
+.paragraph {
+  color: var(--light-text);
+  line-height: 1.5;
+}

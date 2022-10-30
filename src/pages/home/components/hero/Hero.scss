@@ -1,0 +1,86 @@
+@use "../../../../styles/variables" as v;
+
+$header-height: 10rem;
+
+.hero {
+  $container-max: min(90%, 144rem);
+
+  width: min(100% - 3rem, $container-max);
+  margin-inline: auto;
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: v.$sec-pd-bl;
+
+  @media (min-width: 49em) { 
+    height: calc(100vh - $header-height);
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../../../../public/images/blob-medium-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    opacity: .1;
+    position: absolute;
+    z-index: v.$z-background;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-inline: auto;
+    text-align: center;
+
+    h2 {
+      font-size: v.$fs-heading3;
+      font-weight: v.$fw-heading;
+      line-height: v.$line-height-heading;
+
+      @media (min-width: 49em) {
+        font-size: v.$fs-heading1;
+      }
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+
+    > a {
+      display: flex;
+      justify-content: center;
+    }
+
+    .i-icon {
+      margin-inline: auto;
+      animation-duration: .4s;
+      animation-name: moving;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      
+      svg {
+        font-size: v.$fs-heading3;
+      }
+    }
+  }
+}
+
+
+@keyframes moving {
+  from {
+    transform: translateY(-10%);
+  }
+
+  to {
+    transform: translateY(10%);
+  }
+}

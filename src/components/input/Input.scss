@@ -1,0 +1,42 @@
+@use "../../styles/variables" as v;
+
+.input {
+  background-color: v.$input-background;
+  color: v.$text-dark-low;
+  border: v.$bd-default solid v.$input-border;
+  border-radius: v.$br-xs;
+  height: clamp(4.4rem, 3.5vw + .1rem, 6.4rem);
+  width: 100%;
+  padding-inline: v.$input-pd;
+  margin-block-end: clamp(v.$sp-lg, 1.5vw + .1rem, v.$sp-xl);
+  font-size: v.$fs-body;
+  font-family: v.$ff-default;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: v.$bd-large solid v.$input-border-focus;
+    outline: v.$input-border-focus auto v.$bd-large;
+  }
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &.error {
+    border: v.$bd-large solid v.$error;
+    outline: v.$error auto v.$bd-large;
+  }
+
+  &-control {
+    position: relative;
+  }
+
+  & + .message {
+    position: absolute;
+    font-size: v.$fs-small;
+    color: v.$error;
+    left: 0;
+    bottom: v.$sp-xs;
+  }
+}

@@ -1,0 +1,25 @@
+.course-card {
+  padding-block: 1rem;
+  padding-inline: 2rem;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--dark-text);
+    transition: var(--transition);
+    border: .1rem solid transparent;
+    border-radius: var(--border-radius-card);
+    padding: var(--pd-md);
+    min-height: 100%;
+
+    @media (max-width: 46em) {
+      align-items: center;
+      text-align: center;
+    }
+
+    &:hover {
+      border: .1rem solid var(--grayish-blue);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "../../styles/variables" as v;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  
+  &.text {
+    max-inline-size: v.$line-length;
+  }
+}

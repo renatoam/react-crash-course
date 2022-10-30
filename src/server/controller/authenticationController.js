@@ -1,0 +1,24 @@
+const usersDatabase = {
+  users: require('../model/users.json'),
+  setUsers: function (data) { this.users = data }
+}
+
+class AuthenticationController {
+  async run(request, response) {
+    const { email } = request.query
+
+    if (!email) {
+      return response.status(400).json({ message: 'Email is required.' })
+    }
+
+    const user = usersDatabase.users.find(usr => usr.email === email)
+
+    if (!user) {
+      return response.status(404).json({ message: 'User not found.' })
+    }
+
+    return response.sendStatus(200)
+  }
+}
+
+module.exports = AuthenticationController

@@ -1,0 +1,14 @@
+.contents {
+  --min: 20ch;
+  --gap: 1rem;
+  
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-inline: auto;
+  padding-block: 10rem;
+  
+  & > * {
+    flex: 1 1 var(--min);
+  }
+}

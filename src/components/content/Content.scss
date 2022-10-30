@@ -1,0 +1,52 @@
+.content {
+  width: 70%;
+  border-radius: 1rem;
+  padding: var(--pd-lg);
+  text-align: center;
+  color: var(--light-text);
+  margin-inline: auto;
+
+  &.react {
+    background-color: var(--very-dark-cyan);
+  }
+
+  &.javascript {
+    background-color: var(--light-gray);
+  }
+
+  &.css {
+    background-color: var(--very-dark-cyan);
+  }
+
+  &__header {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+  }
+
+  &__actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: 4rem;
+
+    & > button {
+      border: .2rem solid var(--light-gray);
+      background-color: transparent;
+      height: clamp(2rem, 8vw + .1rem, 4.4rem);
+      width: clamp(4rem, 20vw + .1rem, 10rem);
+
+      & a {
+        text-decoration: none;
+        display: grid;
+        place-content: center;
+        height: 100%;
+        width: 100%;
+        color: var(--light-text);
+      }
+    }
+  }
+}

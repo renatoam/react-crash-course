@@ -1,0 +1,9 @@
+.course {
+  --container-max: min(90%, 144rem);
+  width: min(100% - 3rem, var(--container-max, 144rem));
+  margin-inline: auto;
+  
+  > h2 {
+    text-align: center;
+  }
+}

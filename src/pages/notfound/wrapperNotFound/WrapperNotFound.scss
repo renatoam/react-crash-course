@@ -1,0 +1,35 @@
+@use "../../../styles/variables" as v;
+
+.notfound {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+  background-image: url(../../../../public/images/blob-scatter-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .text {
+    color: v.$text-dark-low;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      font-size: v.$fs-heading1;
+    }
+
+    span {
+      font-size: v.$fs-heading2;
+      display: grid;
+      place-content: center;
+    }
+  }
+}

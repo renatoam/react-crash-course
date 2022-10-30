@@ -1,0 +1,32 @@
+[
+  {
+    "id": "b052afed-e74c-49ee-b56b-a204889f0ba1",
+    "type": "react",
+    "name": "React",
+    "image": {
+      "src": "/images/react.svg",
+      "alternative": "React Icon"
+    },
+    "description": "React is a JavaScript library for building user interfaces. It is used to build single-page applications. Also, it allows us to create reusable UI components."
+  },
+  {
+    "id": "01e64a67-7fab-4b7f-8e7a-95f765961b31",
+    "type": "javascript",
+    "name": "JavaScript",
+    "image": {
+      "src": "/images/javascript.svg",
+      "alternative": "JS Icon"
+    },
+    "description": "JavaScript is the world's most popular programming language. It is the programming language of the Web. And, it is easy to learn."
+  },
+  {
+    "id": "3cbe2f6a-182a-4af6-93d4-4048d3c03c04",
+    "type": "css",
+    "name": "CSS",
+    "image": {
+      "src": "/images/css.svg",
+      "alternative": "CSS Icon"
+    },
+    "description": "CSS is the language we use to style an HTML document. It describes how HTML elements should be displayed."
+  }
+]

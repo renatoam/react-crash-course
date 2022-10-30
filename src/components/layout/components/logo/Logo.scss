@@ -1,0 +1,56 @@
+@use "../../../../styles/variables" as v;
+
+.logo {
+  width: 30ch;
+
+  > a {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  &:hover {
+    & section {
+      & > span {
+        opacity: 1;
+        transform: translate(0, -50%) !important;
+      }
+    }
+
+    h1 {
+      transform: rotate(360deg);
+    }
+  }
+
+  section {
+    inline-size: 6ch;
+    overflow: hidden;
+    position: relative;
+    
+    &:first-of-type {
+      > span {
+        right: 0;
+        transform: translate(100%, -50%);
+      }
+    }
+    
+    &:last-of-type {
+      > span {
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
+    }
+    
+    > span {
+      position: absolute;
+      top: 50%;
+      opacity: 0;
+      transition: v.$transition;
+    }
+  }
+
+  h1 {
+    max-inline-size: 4ch;
+    transition: v.$transition;
+  }
+}
