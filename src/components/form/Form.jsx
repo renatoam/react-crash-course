@@ -15,6 +15,6 @@ const Form = forwardRef(({ children, ...rest }, ref) => {
 export default Form
 
 Form.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.element]),
   rest: PropTypes.object
 }

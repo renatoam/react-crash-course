@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
 import { useFormContext } from "../context/formContext"
+import { setUser } from "../store/userSlice"
 
 const useAuthenticate = () => {
   const { loading, setLoading, setFormError } = useFormContext()
   const { authenticate } = useAuthContext()
+  const dispatch = useDispatch()
 
   const email = useRef(null)
   const form = useRef(null)
@@ -30,6 +33,9 @@ const useAuthenticate = () => {
     const response = await authenticate(email.current.value)
 
     if (response) {
+      dispatch(setUser({ email: email.current.value }))
+      setLoading(false)
+      
       return navigate('/auth/signin', { replace: true })      
     }
 

@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useEffect, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
@@ -7,6 +8,7 @@ import { useFormContext } from "../context/formContext"
 const useSignIn = () => {
   const { loading, setLoading, setFormError } = useFormContext()
   const { signIn } = useAuthContext()
+  const [inputEmailState, setInputEmailState] = useState('')
 
   const user = useSelector(state => state.user)
 
@@ -17,18 +19,21 @@ const useSignIn = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
-
-  useEffect(() => {
-    email.current.focus()
-  }, [])
-
+  
   const handleClearForm = () => {
     setFormError(false)
     setLoading(false)
   }
+  
+  useEffect(() => {
+    if (user.email) {
+      setInputEmailState(user.email)
+      password.current.focus()
+    }
+  }, [user.email])
 
   useEffect(() => {
-    if (user) {
+    if (user.isLogged) {
       return navigate(from, { replace: true })
     }
   }, [user, from, navigate])
@@ -54,6 +59,7 @@ const useSignIn = () => {
       form
     },
     loading,
+    inputEmailState,
     handleClearForm,
     handleSubmit
   }

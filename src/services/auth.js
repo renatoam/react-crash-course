@@ -2,8 +2,8 @@ import { axiosDefault } from "./axios"
 
 export const authenticateService = async (email) => {
   try {
-    await axiosDefault.get('/authenticate', { params: { email } })
-    return { success: true }
+    const response = await axiosDefault.get('/authenticate', { params: { email } })
+    return response.data
   } catch (error) {
     return { error: true, message: error.response.data.message }
   }
