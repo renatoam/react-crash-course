@@ -23,9 +23,11 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
+    console.log({ response })
+    dispatch(setUser(response))
     dispatch(setNotifications({
       status: 'success',
-      message:  'Usuário autenticado. Continue com o login.'
+      message:  `Olá, ${response.firstname}. Por favor, digite sua senha.`
     }))
     
     return true
@@ -43,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    dispatch(setUser(response.user))
+    dispatch(setUser({ ...response.user, isLogged: true }))
     dispatch(setNotifications({
       status: 'success',
       message:  `Bem-vindo, ${response.firstname ?? 'camarada'}`
@@ -64,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    dispatch(setUser(response))
+    dispatch(setUser({ ...response, isLogged: true }))
     dispatch(setNotifications({
       status: 'success',
       message:  `Olá de novo, ${response.firstname ?? 'estudante'}!`

@@ -17,7 +17,11 @@ class AuthenticationController {
       return response.status(404).json({ message: 'User not found.' })
     }
 
-    return response.sendStatus(200)
+    return response.status(200).json({
+      email: user.email,
+      firstname: user.firstname,
+      lastname: user.lastname
+    })
   }
 }
 
