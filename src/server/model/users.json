@@ -30,19 +30,19 @@
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoaXJ5dUBkcmFnb24uY29tIiwiaWF0IjoxNjY2MDA2MTM0LCJleHAiOjE2NjYwMjA1MzR9.vYoaHvbU9Azb1HwKbjwLEWGPaipupTSmpWk3FPeJeOw"
   },
   {
-    "firstname": "Renato",
-    "lastname": "Alves de Melo",
-    "id": "f3b645ab-c777-4a1b-bb38-74474c52d64f",
-    "email": "renato@alves.com",
-    "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2Njc0MDUwNTQsImV4cCI6MTY2NzQxOTQ1NH0.wv--uQ_0HK1fyfE4ND9WbIE7s2oaUZIjJ97vmDgiuI4"
-  },
-  {
     "firstname": "Goku",
     "lastname": "Son",
     "id": "b4cc123d-d7a3-4fb9-935a-257bb244fb0a",
     "email": "songoku@saiyajin.com",
     "password": "$2b$10$e4KdLGbSSgFkizYFs7ERNenNgL.UHAaMuGpVovTsYDT5uRmhPXZGy",
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbmdva3VAc2FpeWFqaW4uY29tIiwiaWF0IjoxNjY3NDA3MDg0LCJleHAiOjE2Njc0MjE0ODR9.N4o38lo5dDfucRPy657l8uFBWUb6GuwQH_9bu6lFSTc"
+  },
+  {
+    "firstname": "Renato",
+    "lastname": "Alves de Melo",
+    "id": "f3b645ab-c777-4a1b-bb38-74474c52d64f",
+    "email": "renato@alves.com",
+    "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2Njc0MDg5ODMsImV4cCI6MTY2NzQyMzM4M30.-yR7FWo3wNibRFgOhBzJO6tX_glRISTNrqxfLacB1cs"
   }
 ]

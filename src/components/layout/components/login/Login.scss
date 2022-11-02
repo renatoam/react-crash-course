@@ -5,10 +5,11 @@
   background-color: transparent;
 
   a {
-    color: var(--dark-text);
-    display: block;
-    padding-block: 1rem;
-    padding-inline: 2rem;
+    align-items: center;
+    display: flex;
+    padding-block: v.$sp-sm;
+    padding-inline: v.$sp-md;
+    gap: v.$sp-md;
 
     span {
       display: grid;

@@ -12,8 +12,6 @@ Implementar:
   ☐ Criar internacionalização
   ☐ Criar Dark Mode
 
-  Evitar login quando já estiver logado
-
 Alterar:
   ✘ Engine de estilos (padronizar Sass e criar os tokens) 
   ☐ Usar Radix
