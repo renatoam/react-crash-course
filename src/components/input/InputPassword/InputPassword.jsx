@@ -10,6 +10,7 @@ const InputPassword = forwardRef((props, ref) => {
     name,
     type = "password",
     validate,
+    method = "default",
     ...rest
   } = props
 
@@ -32,6 +33,8 @@ const InputPassword = forwardRef((props, ref) => {
   }
 
   const handleChange = (event) => {
+    if (!validate) return
+
     const value = event.target.value
     const fieldName = event.target.name
     const validation = validate(fieldName, value)
@@ -65,31 +68,33 @@ const InputPassword = forwardRef((props, ref) => {
         onBlur={handlePasswordRules}
         {...rest}
       />
-      <section className={`password-rules ${rulesVisibility ? 'visible' : ''}`}>
-        <Text small>Password should contain:</Text>
-        <section className="password-rules__content">
-          <section className="password-rules__column">
-            <div>
-              {getIconPasswordRules('lowercase')}
-              <Text small>Lower case</Text>
-            </div>
-            <div>
-              {getIconPasswordRules('uppercase')}
-              <Text small>Upper case</Text>
-            </div>
-          </section>
-          <section className="password-rules__column">
-            <div>
-              {getIconPasswordRules('number')}
-              <Text small>Number</Text>
-            </div>
-            <div>
-              {getIconPasswordRules('minimum')}
-              <Text small>At least 8 digits</Text>
-            </div>
+      {method === "create" && (
+        <section className={`password-rules ${rulesVisibility ? 'visible' : ''}`}>
+          <Text small>Password should contain:</Text>
+          <section className="password-rules__content">
+            <section className="password-rules__column">
+              <div>
+                {getIconPasswordRules('lowercase')}
+                <Text small>Lower case</Text>
+              </div>
+              <div>
+                {getIconPasswordRules('uppercase')}
+                <Text small>Upper case</Text>
+              </div>
+            </section>
+            <section className="password-rules__column">
+              <div>
+                {getIconPasswordRules('number')}
+                <Text small>Number</Text>
+              </div>
+              <div>
+                {getIconPasswordRules('minimum')}
+                <Text small>At least 8 digits</Text>
+              </div>
+            </section>
           </section>
         </section>
-      </section>
+      )}
     </section>
   )
 })
@@ -100,7 +105,7 @@ InputPassword.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
-  rulesVisibility: PropTypes.bool,
+  method: PropTypes.oneOf(['default', 'create']),
   validate: PropTypes.func,
   rest: PropTypes.object
 }

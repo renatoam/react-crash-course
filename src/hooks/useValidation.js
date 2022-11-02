@@ -3,6 +3,8 @@ import { z } from "zod"
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
 
 const useValidation = () => {
+  const emailValidation = z.string().regex(EMAIL_REGEX, { message: 'Email should have a valid format.' })
+
   const defaultSchema = {
     firstname: z.string().min(3, { message: 'First name should have at least 3 characters.' }),
     lastname: z.string().min(2, { message: 'Last name should have at least 1 character.' }),
@@ -36,7 +38,8 @@ const useValidation = () => {
 
   return {
     defaultSchema,
-    matchPasswordSchema
+    matchPasswordSchema,
+    emailValidation
   }
 }
 

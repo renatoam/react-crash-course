@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
 import { useFormContext } from "../context/formContext"
+import useValidation from "./useValidation"
 
 const useSignIn = () => {
   const { signIn } = useAuthContext()
   const { loading, setLoading, setFormError } = useFormContext()
   const [inputEmailState, setInputEmailState] = useState('')
-
+  const { emailValidation } = useValidation()
   const user = useSelector(state => state.user)
 
   const password = useRef(null)
@@ -23,19 +24,19 @@ const useSignIn = () => {
     setFormError(false)
     setLoading(false)
   }
-  
-  useEffect(() => {
-    if (user.email) {
-      setInputEmailState(user.email)
-      password.current.focus()
-    }
-  }, [user.email])
 
-  useEffect(() => {
-    if (user.isLogged) {
-      return navigate(from, { replace: true })
+  const handleValidation = useCallback((_, value) => {
+    try {
+      emailValidation.parse(value)
+      return true
+    } catch (error) {
+      return {
+        error: true,
+        issues: error.issues ?? [],
+        message: error.errors?.[0].message
+      }
     }
-  }, [user, from, navigate])
+  }, [])
   
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -51,6 +52,17 @@ const useSignIn = () => {
     }
   }
 
+  useEffect(() => {
+    if (user?.isLogged) {
+      return navigate(from, { replace: true })
+    }
+
+    if (user?.email) {
+      setInputEmailState(user.email)
+      password.current.focus()
+    }
+  }, [user, from, navigate])
+
   return {
     refs: {
       password,
@@ -60,7 +72,8 @@ const useSignIn = () => {
     loading,
     inputEmailState,
     handleClearForm,
-    handleSubmit
+    handleSubmit,
+    handleValidation
   }
 }
 

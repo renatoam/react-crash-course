@@ -8,7 +8,6 @@ const Input = forwardRef((props, ref) => {
     placeholder,
     name,
     type = "text",
-    rulesVisibility,
     validate,
     ...rest
   } = props
@@ -16,6 +15,8 @@ const Input = forwardRef((props, ref) => {
   const [error, setError] = useState(null)
 
   const handleChange = useCallback((event) => {
+    if (!validate) return
+
     const value = event.target.value
     const fieldName = event.target.name
     const validation = validate(fieldName, value)
@@ -51,8 +52,5 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
-  errorMessage: PropTypes.string,
-  error: PropTypes.bool,
-  rulesVisibility: PropTypes.bool,
   rest: PropTypes.object
 }

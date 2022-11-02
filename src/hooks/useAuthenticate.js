@@ -1,14 +1,16 @@
-import { useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
 import { useFormContext } from "../context/formContext"
 import { setUser } from "../store/userSlice"
+import useValidation from "./useValidation"
 
 const useAuthenticate = () => {
   const { loading, setLoading, setFormError } = useFormContext()
   const { authenticate } = useAuthContext()
   const dispatch = useDispatch()
+  const { emailValidation } = useValidation()
 
   const email = useRef(null)
   const form = useRef(null)
@@ -24,6 +26,19 @@ const useAuthenticate = () => {
     setFormError(false)
     setLoading(false)
   }
+
+  const handleValidation = useCallback((_, value) => {
+    try {
+      emailValidation.parse(value)
+      return true
+    } catch (error) {
+      return {
+        error: true,
+        issues: error.issues ?? [],
+        message: error.errors?.[0].message
+      }
+    }
+  }, [])
   
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -49,7 +64,8 @@ const useAuthenticate = () => {
     email,
     loading,
     handleClearForm,
-    handleSubmit
+    handleSubmit,
+    handleValidation
   }
 }
 

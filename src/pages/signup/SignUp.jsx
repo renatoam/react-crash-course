@@ -39,6 +39,7 @@ export default function SignUp() {
           placeholder="Password"
           name="password"
           type="password"
+          method="create"
           validate={handleValidation}
           ref={refs.passwordRef}
         />
