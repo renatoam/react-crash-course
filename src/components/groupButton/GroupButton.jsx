@@ -18,5 +18,5 @@ GroupButton.defaultProps = {
 
 GroupButton.propTypes = {
   flex: PropTypes.bool,
-  children: PropTypes.element
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.element]),
 }

@@ -1,8 +1,9 @@
 import './Button.scss'
+import { memo } from "react"
 import PropTypes from 'prop-types'
 import { LoadingFour } from "@icon-park/react"
 
-export default function Button(props) {
+function Button(props) {
   const { variant, icon, loading, alternative, children, ...rest } = props
   
   const isAlternative = alternative ? 'alternative' : ''
@@ -37,3 +38,5 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   rest: PropTypes.object
 }
+
+export default memo(Button)

@@ -18,31 +18,29 @@
   h2 {
     font-size: v.$fs-heading2;
   }
-}
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(2rem, 10vw, 5rem);
-  margin-inline: auto;
-  max-inline-size: 90vw;
-
-  @media (min-width: 49em) {
-    flex-direction: row;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(2rem, 10vw, 5rem);
+    margin-inline: auto;
+    max-inline-size: 90vw;
+  
+    @media (min-width: 49em) {
+      flex-direction: row;
+    }
   }
 }
 
 .intro {
   display: flex;
   flex-direction: column;
-  flex: 1 1 100%;
   gap: 2rem;
-}
-
-.sign {
-  flex: 1 1 100%;
-  width: 100%;
+  
+  p {
+    max-inline-size: min(100%, 55ch);
+  }
 }
 
 .form > p {

@@ -1,0 +1,39 @@
+Implementar:
+  ☐ Logout
+    ☐ Implementar lógica
+    ☐ Colocar nome do usuário no header (e palavra Login no offline)
+  ☐ 2FA enviando código por email
+  ☐ Persistent Token
+  ☐ Conteúdo
+  ☐ Criar CRUD para conteúdos
+  ☐ React Query
+  ☐ Validação nos formulários com Zod
+  ☐ Arrumar estilos
+
+  Checar diferença no response de signin e signup no authContext
+  Dar um refresh no signin sem vir de authentication, tá quebrando
+
+Alterar:
+  ✘ Engine de estilos (padronizar Sass e criar os tokens) 
+  ☐ Usar Radix
+    ☐ Cyan (Primary), White (Secondary), Gray/Slate (Tertiary)
+    ☐ Gray Scale Slate
+    ☐ Error Red
+    ☐ Success Green
+    ☐ Warning Amber
+    ☐ Info Indigo
+  ☐ Criar ferramentas de estilo
+  ☐ Responsividade
+
+
+Checklist Responsive:
+  ☐ CSS
+    ☐ Reset CSS
+    ☐ Variables for tokens
+    ☐ Preload critical CSS
+  ☐ Fonts
+    ☐ Preload critical fonts
+    ☐ Font Face for all the fonts
+      ☐ Variable fonts with fallback is recommended
+      ☐ woff2 and woff should be the first choice
+    ☐ Size adjust and Overrides

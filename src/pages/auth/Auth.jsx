@@ -6,7 +6,7 @@ import Intro from "./intro/Intro"
 export default function Auth() {
   return (
     <main className="auth">
-      <section className="wrapper">
+      <section className="auth__wrapper">
         <Intro />
         <FormProvider>
           <Outlet />

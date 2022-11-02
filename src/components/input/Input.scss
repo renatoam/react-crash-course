@@ -1,5 +1,63 @@
 @use "../../styles/variables" as v;
 
+.input-control {
+  position: relative;
+
+  span.show-password {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: clamp(v.$sp-lg, 2vw, v.$sp-xl);
+    right: clamp(v.$sp-md, 2vw, v.$sp-md);
+    font-size: v.$fs-heading4;
+
+    path {
+      stroke-width: 3;
+    }
+  }
+
+  .password-rules {
+    background-color: hsl(185, 73.3%, 97.1%);
+    border-radius: .4rem;
+    padding-inline: 1.6rem;
+    overflow: hidden;
+    max-block-size: 0;
+    opacity: 0;
+    transition: v.$transition;
+    will-change: opacity;
+    
+    &.visible {
+      border: .1rem solid hsl(188, 54.6%, 78.4%);
+      margin-block-end: 1.6rem;
+      max-block-size: 30rem;
+      padding-block: .8rem;
+      opacity: 1;
+    }
+
+    &__content {
+      display: flex;
+      gap: clamp(v.$sp-lg, 6vw, v.$sp-xl);
+    }
+
+    &__column {
+      margin-block-start: v.$sp-sm;
+
+      > div {
+        display: flex;
+        gap: v.$sp-sm;
+      }
+    }
+
+    .i-icon-check-small {
+      color: v.$success;
+    }
+
+    .i-icon-close-small {
+      color: v.$error;
+    }
+  }
+}
+
 .input {
   background-color: v.$input-background;
   color: v.$text-dark-low;
@@ -11,6 +69,10 @@
   margin-block-end: clamp(v.$sp-lg, 1.5vw + .1rem, v.$sp-xl);
   font-size: v.$fs-body;
   font-family: v.$ff-default;
+
+  &::-ms-reveal {
+    display: none;
+  }
 
   &:focus,
   &:focus-visible,

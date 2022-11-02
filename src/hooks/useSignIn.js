@@ -1,13 +1,12 @@
-import { useState } from "react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
 import { useFormContext } from "../context/formContext"
 
 const useSignIn = () => {
-  const { loading, setLoading, setFormError } = useFormContext()
   const { signIn } = useAuthContext()
+  const { loading, setLoading, setFormError } = useFormContext()
   const [inputEmailState, setInputEmailState] = useState('')
 
   const user = useSelector(state => state.user)

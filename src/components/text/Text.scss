@@ -51,3 +51,8 @@
   color: var(--light-text);
   line-height: 1.5;
 }
+
+.small {
+  font-size: v.$fs-small;
+  font-weight: v.$fw-small;
+}

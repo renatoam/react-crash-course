@@ -1,16 +1,33 @@
-import { forwardRef } from "react"
-import './Input.scss'
 import PropTypes from 'prop-types'
+import { forwardRef, memo, useCallback, useState } from "react"
+import './Input.scss'
+import InputPassword from "./InputPassword/InputPassword"
  
 const Input = forwardRef((props, ref) => {
   const {
     placeholder,
     name,
     type = "text",
-    error = false,
-    errorMessage = '',
+    rulesVisibility,
+    validate,
     ...rest
   } = props
+
+  const [error, setError] = useState(null)
+
+  const handleChange = useCallback((event) => {
+    const value = event.target.value
+    const fieldName = event.target.name
+    const validation = validate(fieldName, value)
+
+    if (validation?.error) {
+      return setError(validation)
+    }
+
+    setError(null)
+  }, [])
+
+  if (name === 'password') return <InputPassword ref={ref} {...props} />
 
   return (
     <section className="input-control">
@@ -20,14 +37,15 @@ const Input = forwardRef((props, ref) => {
         placeholder={placeholder}
         name={name}
         ref={ref}
+        onChange={handleChange}
         {...rest}
       />
-      {error && <span className="message">{errorMessage}</span>}
+      {error && <span className="message">{error.message}</span>}
     </section>
   )
 })
 
-export default Input
+export default memo(Input)
 
 Input.propTypes = {
   placeholder: PropTypes.string,
@@ -35,5 +53,6 @@ Input.propTypes = {
   type: PropTypes.string,
   errorMessage: PropTypes.string,
   error: PropTypes.bool,
+  rulesVisibility: PropTypes.bool,
   rest: PropTypes.object
 }
