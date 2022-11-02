@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    console.log({ response })
     dispatch(setUser(response))
     dispatch(setNotifications({
       status: 'success',
@@ -66,10 +65,10 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    dispatch(setUser({ ...response, isLogged: true }))
+    dispatch(setUser({ ...response.user, isLogged: true }))
     dispatch(setNotifications({
       status: 'success',
-      message:  `Olá de novo, ${response.firstname ?? 'estudante'}!`
+      message:  `Olá de novo, ${response.user.firstname ?? 'estudante'}!`
     }))
 
     return true

@@ -17,8 +17,6 @@ const useSignUp = () => {
 
   const userState = useSelector(state => state.user)
   const navigate = useNavigate()
-
-  const [registrationInitialized, setRegistrationInitialized] = useState(false)
   const { defaultSchema, matchPasswordSchema } = useValidation()
 
   const handleClearForm = useCallback(() => {
@@ -29,17 +27,25 @@ const useSignUp = () => {
   
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault()
-
-    if (!registrationInitialized) {
-      return notify('info', 'Please, fill the form.')
-    }
     const fields = [...event.target.elements]
       .filter(field => field.localName === 'input')
-    const emptyField = fields.find(field => field.value.length <= 0)
+    const isFormEmpty = fields.every(input => input.value.length <= 0)
+    const isThereEmptyField = fields.find(field => field.value.length <= 0)
 
-    if (emptyField) {
-      return notify('warning', validation[emptyField.name].message)
+    if (isFormEmpty) {
+      return notify('info', 'Por favor, preencha o formulário.')
     }
+
+    if (isThereEmptyField) {
+      return notify('warning', `O campo ${isThereEmptyField.name} deve ser preenchido.`)
+    }
+
+    const user = fields.reduce((acc, field) => {
+      return {
+        ...acc,
+        [field.name]: field.value
+      }
+    }, {})
 
     setLoading(true)
     
@@ -76,7 +82,6 @@ const useSignUp = () => {
 
   useEffect(() => {
     firstnameRef.current.focus()
-    setRegistrationInitialized(false)
   }, [])
 
   useEffect(() => {

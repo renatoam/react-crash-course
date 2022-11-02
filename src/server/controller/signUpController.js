@@ -37,21 +37,26 @@ class SignUpController {
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: '1h' }
     )
-        
-    const newUser = {
+
+    const id = uuid()
+    const responseUser = {
       ...rest,
-      id: uuid(),
       email,
+      id
+    }
+        
+    const persistenceUser = {
+      ...responseUser,
       password: hashedPassword,
       refreshToken
     }
     
     try {
-      await userRepository.save(newUser)
+      await userRepository.save(persistenceUser)
 
       response.cookie('token', refreshToken, { httpOnly: true })
       
-      return response.status(200).json({ user: newUser, accessToken, message: 'User has been created.' })
+      return response.status(200).json({ user: responseUser, accessToken, message: 'User has been created.' })
     } catch (error) {
       return response.status(500).json({ message: 'Something went wrong', error: error.message })
     }

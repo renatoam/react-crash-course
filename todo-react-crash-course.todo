@@ -9,8 +9,10 @@ Implementar:
   ☐ React Query
   ☐ Validação nos formulários com Zod
   ☐ Arrumar estilos
+  ☐ Criar internacionalização
+  ☐ Criar Dark Mode
 
-  Checar diferença no response de signin e signup no authContext
+  Evitar login quando já estiver logado
 
 Alterar:
   ✘ Engine de estilos (padronizar Sass e criar os tokens) 
