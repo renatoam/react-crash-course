@@ -1,9 +1,9 @@
 Implementar:
-  ☐ Logout
-    ☐ Implementar lógica
+  ✔ Logout @done(22-11-04 20:42)
+    ✔ Implementar lógica @done(22-11-04 20:42)
     ☐ Colocar nome do usuário no header (e palavra Login no offline)
   ☐ 2FA enviando código por email
-  ☐ Persistent Token
+  ✔ Persistent Token @done(22-11-04 20:42)
   ☐ Conteúdo
   ☐ Criar CRUD para conteúdos
   ☐ React Query

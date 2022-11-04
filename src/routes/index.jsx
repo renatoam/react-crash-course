@@ -9,6 +9,7 @@ import JavaScript from "../pages/javascript/JavaScript"
 import NotFound from "../pages/notfound/NotFound"
 import ReactPage from "../pages/react/React"
 import SignIn from "../pages/signin/SignIn"
+import SignOut from "../pages/signout/SignOut"
 import SignUp from "../pages/signup/SignUp"
 import Summary from "../pages/summary/Summary"
 import PersistLogin from "./PersistLogin"
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
       {
         path: 'signup',
         element: <SignUp />
+      },
+      {
+        path: 'signout',
+        element: <SignOut />
       }
     ]
   }

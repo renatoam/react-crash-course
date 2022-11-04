@@ -29,6 +29,16 @@ export const signInService = async (email, password) => {
   }
 }
 
+export const signOutService = async () => {
+  try {
+    await axiosDefault.post('/signout', {
+      withCredentials: true
+    })
+  } catch (error) {
+    return { error: true, message: error.response.data.message }
+  }
+}
+
 export const refreshTokenService = async () => {
   try {
     const response = await axiosDefault.get('/refresh', {

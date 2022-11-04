@@ -8,6 +8,7 @@ import Image from './image/Image'
 import Input from './input/Input'
 import Layout from "./layout/Layout"
 import Text from './text/Text'
+import Wrapper from "./wrapper/Wrapper"
 
 export {
   Button,
@@ -19,5 +20,6 @@ export {
   Image,
   Input,
   Layout,
-  Text
+  Text,
+  Wrapper
 }

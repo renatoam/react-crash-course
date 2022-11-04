@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { useDispatch } from "react-redux";
-import { authenticateService, refreshTokenService, signInService, signUpService } from "../services/auth";
+import { authenticateService, refreshTokenService, signInService, signOutService, signUpService } from "../services/auth";
 import { setNotifications } from "../store/notificationsSlice";
 import { setToken, setUser } from "../store/userSlice";
 
@@ -74,6 +74,27 @@ export const AuthProvider = ({ children }) => {
     return true
   }
 
+  async function signOut() {
+    const response = await signOutService()
+
+    if (response?.error) {
+      dispatch(setNotifications({
+        status: 'error',
+        message: response.message
+      }))
+
+      return false
+    }
+
+    dispatch(setUser(null))
+    dispatch(setNotifications({
+      status: 'success',
+      message:  `Você saiu.`
+    }))
+
+    return true
+  }
+
   async function refresh() {
     const response = await refreshTokenService()
 
@@ -92,6 +113,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     signUp,
     signIn,
+    signOut,
     refresh,
     authenticate,
   }
