@@ -12,6 +12,8 @@ Implementar:
   ☐ Criar internacionalização
   ☐ Criar Dark Mode
 
+  ☐ Documentar inconsistencias do Vite (httpOnly no 127... e case insensitive macOs)
+
 Alterar:
   ✘ Engine de estilos (padronizar Sass e criar os tokens) 
   ☐ Usar Radix

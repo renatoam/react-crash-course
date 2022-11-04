@@ -3,14 +3,8 @@ import store from "../store"
 import { setToken } from "../store/userSlice"
 
 export const getSummaryService = async () => {
-  const token = store.getState().user.accessToken
-
   try {
-    const response = await axiosPrivate.get('/summary', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    const response = await axiosPrivate.get('/summary')
   
     return response.data
   } catch (error) {
@@ -20,7 +14,11 @@ export const getSummaryService = async () => {
   
         store.dispatch(setToken(refresh.data.accessToken))
   
-        const result = await axiosPrivate.get('/summary')
+        const result = await axiosPrivate.get('/summary', {
+          headers: {
+            Authorization: `Bearer ${refresh.data.accessToken}`
+          }
+        })
   
         return result.data
       } catch (error) {

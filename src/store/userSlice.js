@@ -8,7 +8,10 @@ const userSlice = createSlice({
       return action.payload
     },
     setToken: (state, action) => {
-      state.accessToken = action.payload
+      return {
+        ...state,
+        accessToken: action.payload
+      }
     }
   }
 })

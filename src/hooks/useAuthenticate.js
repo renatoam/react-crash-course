@@ -65,7 +65,7 @@ const useAuthenticate = () => {
   }, [])
 
   useEffect(() => {
-    if (user?.isLogged) {
+    if (user?.accessToken) {
       notify('info', 'Você já está logado')
       return navigate(from, { replace: true })
     }

@@ -8,8 +8,9 @@ const PrivateRoute = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (!user) {
-      return navigate('/auth/signin', { state: { from: location }, replace: true })
+    if (!user?.accessToken) {
+      console.log('2', user)
+      return navigate('/auth', { state: { from: location }, replace: true })
     }
   }, [user, location, navigate])
 

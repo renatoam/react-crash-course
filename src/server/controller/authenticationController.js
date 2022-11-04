@@ -18,10 +18,11 @@ class AuthenticationController {
     }
 
     return response.status(200).json({
-      email: user.email,
-      firstname: user.firstname,
-      lastname: user.lastname
-    })
+      user: {
+        email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname
+    }})
   }
 }
 

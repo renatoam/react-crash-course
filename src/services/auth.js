@@ -20,8 +20,21 @@ export const signUpService = async (user) => {
 
 export const signInService = async (email, password) => {
   try {
-    const response = await axiosDefault.post('/signin', { email, password })
-    return response?.data
+    const response = await axiosDefault.post('/signin', { email, password }, {
+      withCredentials: true
+    })
+    return response.data
+  } catch (error) {
+    return { error: true, message: error.response.data.message }
+  }
+}
+
+export const refreshTokenService = async () => {
+  try {
+    const response = await axiosDefault.get('/refresh', {
+      withCredentials: true
+    })
+    return response.data
   } catch (error) {
     return { error: true, message: error.response.data.message }
   }

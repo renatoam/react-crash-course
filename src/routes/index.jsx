@@ -11,6 +11,7 @@ import ReactPage from "../pages/react/React"
 import SignIn from "../pages/signin/SignIn"
 import SignUp from "../pages/signup/SignUp"
 import Summary from "../pages/summary/Summary"
+import PersistLogin from "./PersistLogin"
 import PrivateRoute from "./PrivateRoute"
 
 const SummaryRoutes = ({ Component }) => {
@@ -32,24 +33,29 @@ export const router = createBrowserRouter([
         element: <Homepage />
       },
       {
-        element: <PrivateRoute />,
+        element: <PersistLogin />,
         children: [
           {
-            path: 'content',
-            element: <SummaryRoutes Component={Summary} />,
-          },
-          {
-            path: 'content/react',
-            element: <SummaryRoutes Component={ReactPage} />
-          },
-          {
-            path: 'content/javascript',
-            element: <SummaryRoutes Component={JavaScript} />
-          },
-          {
-            path: 'content/css',
-            element: <SummaryRoutes Component={CSS} />
-          },
+            element: <PrivateRoute />,
+            children: [
+              {
+                path: 'content',
+                element: <SummaryRoutes Component={Summary} />,
+              },
+              {
+                path: 'content/react',
+                element: <SummaryRoutes Component={ReactPage} />
+              },
+              {
+                path: 'content/javascript',
+                element: <SummaryRoutes Component={JavaScript} />
+              },
+              {
+                path: 'content/css',
+                element: <SummaryRoutes Component={CSS} />
+              },
+            ]
+          }
         ]
       }
     ]

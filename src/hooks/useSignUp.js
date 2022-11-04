@@ -15,7 +15,7 @@ const useSignUp = () => {
   const passwordRef = useRef(null)
   const form = useRef(null)
 
-  const userState = useSelector(state => state.user)
+  const user = useSelector(state => state.user)
   const navigate = useNavigate()
   const { defaultSchema, matchPasswordSchema } = useValidation()
 
@@ -40,7 +40,7 @@ const useSignUp = () => {
       return notify('warning', `O campo ${isThereEmptyField.name} deve ser preenchido.`)
     }
 
-    const user = fields.reduce((acc, field) => {
+    const newUserData = fields.reduce((acc, field) => {
       return {
         ...acc,
         [field.name]: field.value
@@ -49,8 +49,8 @@ const useSignUp = () => {
 
     setLoading(true)
     
-    delete user.confirmPassword
-    const response = await signUp(user)
+    const { confirmPassword, ...newUser } = newUserData
+    const response = await signUp(newUser)
 
     if (!response) {
       setFormError(true)
@@ -85,10 +85,10 @@ const useSignUp = () => {
   }, [])
 
   useEffect(() => {
-    if (userState) {
+    if (user?.accessToken) {
       return navigate('/content', { replace: true })
     }
-  }, [userState, navigate])
+  }, [user, navigate])
 
   return {
     refs: {

@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
 import { useDispatch } from "react-redux";
-import { authenticateService, signInService, signUpService } from "../services/auth";
+import { authenticateService, refreshTokenService, signInService, signUpService } from "../services/auth";
 import { setNotifications } from "../store/notificationsSlice";
-import { setUser } from "../store/userSlice";
+import { setToken, setUser } from "../store/userSlice";
 
 export const AuthContext = createContext(null)
 
@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    dispatch(setUser(response))
+    dispatch(setUser(response.user))
     dispatch(setNotifications({
       status: 'success',
-      message:  `Olá, ${response.firstname}. Por favor, digite sua senha.`
+      message:  `Olá, ${response.user.firstname}. Por favor, digite sua senha.`
     }))
     
     return true
@@ -74,10 +74,27 @@ export const AuthProvider = ({ children }) => {
     return true
   }
 
+  async function refresh() {
+    const response = await refreshTokenService()
+
+    if (response?.error) {
+      dispatch(setNotifications({
+        status: 'error',
+        message: 'Você não está mais logado. Faça o login novamente.'
+      }))
+
+      return false
+    }
+
+    console.log({ response })
+    dispatch(setToken(response.accessToken))
+  }
+
   const value = {
     signUp,
+    signIn,
+    refresh,
     authenticate,
-    signIn
   }
 
   return (

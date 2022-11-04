@@ -53,7 +53,7 @@ const useSignIn = () => {
   }
 
   useEffect(() => {
-    if (user?.isLogged) {
+    if (user?.accessToken) {
       return navigate(from, { replace: true })
     }
 

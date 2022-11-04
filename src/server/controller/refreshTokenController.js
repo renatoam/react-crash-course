@@ -13,6 +13,7 @@ class RefreshTokenController {
     const cookies = request.cookies
     const refreshToken = cookies?.token
 
+    console.log({ cookies, refreshToken })
     if (!refreshToken) {
       return response.status(401).json({ message: 'You do not have access.' })
     }

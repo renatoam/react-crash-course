@@ -38,11 +38,19 @@
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbmdva3VAc2FpeWFqaW4uY29tIiwiaWF0IjoxNjY3NDA3MDg0LCJleHAiOjE2Njc0MjE0ODR9.N4o38lo5dDfucRPy657l8uFBWUb6GuwQH_9bu6lFSTc"
   },
   {
+    "firstname": "Gohan",
+    "lastname": "Son",
+    "email": "songohan@piccolo.com",
+    "id": "e111777f-967d-4587-a34f-fcd87d917452",
+    "password": "$2b$10$ttwZUagXHQbzxL3uP4Jd8OQQgux0G7VgseImPL7kCVLiJ8RJMR9tS",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbmdvaGFuQHBpY2NvbG8uY29tIiwiaWF0IjoxNjY3NDM0NTE2LCJleHAiOjE2Njc0MzgxMTZ9.y0J1gA0FqVa5dh3yagLnpOkvh-WBIdKJbUfiMyGqxuU"
+  },
+  {
     "firstname": "Renato",
     "lastname": "Alves de Melo",
     "id": "f3b645ab-c777-4a1b-bb38-74474c52d64f",
     "email": "renato@alves.com",
     "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2Njc0MDg5ODMsImV4cCI6MTY2NzQyMzM4M30.-yR7FWo3wNibRFgOhBzJO6tX_glRISTNrqxfLacB1cs"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2Njc1MjM2NTMsImV4cCI6MTY2NzUyMzY2M30.ioaAx-Gto4cPflRDsuiau16B1qh7iKDuK3d_HgEHlQY"
   }
 ]

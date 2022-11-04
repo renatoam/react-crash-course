@@ -49,13 +49,10 @@ class SignInController {
       { maxAge: 24 * 60 * 60 * 1000, httpOnly: true, secure: true }
     )
 
-    const responseUser = {
+    const { password: pwd, refreshToken: rt,  ...responseUser } = {
       ...user,
       accessToken
     }
-
-    delete responseUser.password
-    delete responseUser.refreshToken
 
     try {
       await userRepository.update({ ...user, refreshToken })
