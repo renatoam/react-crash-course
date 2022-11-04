@@ -86,7 +86,6 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
-    console.log({ response })
     dispatch(setToken(response.accessToken))
   }
 

@@ -10,11 +10,8 @@ export default function PersistLogin() {
 
   useEffect(() => {
     if (!user?.accessToken) {
-      console.log('1', user)
       refresh()
         .finally(() => setIsLoading(false))
-    } else {
-      setIsLoading(false)
     }
   }, [])
 
