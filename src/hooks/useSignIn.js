@@ -6,7 +6,7 @@ import { useFormContext } from "../context/formContext"
 import useValidation from "./useValidation"
 
 const useSignIn = () => {
-  const { signIn } = useAuthContext()
+  const { signIn, shouldPersist, setShouldPersist } = useAuthContext()
   const { loading, setLoading, setFormError } = useFormContext()
   const [inputEmailState, setInputEmailState] = useState('')
   const { emailValidation } = useValidation()
@@ -23,6 +23,10 @@ const useSignIn = () => {
   const handleClearForm = () => {
     setFormError(false)
     setLoading(false)
+  }
+
+  const handlePersist = () => {
+    setShouldPersist(currentState => !currentState)
   }
 
   const handleValidation = useCallback((_, value) => {
@@ -63,6 +67,10 @@ const useSignIn = () => {
     }
   }, [user, from, navigate])
 
+  useEffect(() => { 
+    localStorage.setItem("persist", shouldPersist)
+   }, [shouldPersist])
+
   return {
     refs: {
       password,
@@ -73,7 +81,8 @@ const useSignIn = () => {
     inputEmailState,
     handleClearForm,
     handleSubmit,
-    handleValidation
+    handleValidation,
+    handlePersist
   }
 }
 

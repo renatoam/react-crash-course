@@ -4,15 +4,16 @@ import { Outlet } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
  
 export default function PersistLogin() {
-  const { refresh } = useAuthContext()
+  const { refresh, shouldPersist } = useAuthContext()
   const user = useSelector(state => state.user)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (!user?.accessToken) {
+    if (!user?.accessToken && shouldPersist) {
       refresh()
-        .finally(() => setIsLoading(false))
     }
+
+    setIsLoading(false)
   }, [])
 
   if (isLoading) return <p>Loading...</p>

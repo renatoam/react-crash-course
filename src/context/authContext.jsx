@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { authenticateService, refreshTokenService, signInService, signOutService, signUpService } from "../services/auth";
 import { setNotifications } from "../store/notificationsSlice";
@@ -10,6 +10,8 @@ export const useAuthContext = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
   const dispatch = useDispatch()
+  const persistInitialState = JSON.parse(localStorage.getItem("persist"))
+  const [shouldPersist, setShouldPersist] = useState(persistInitialState)
 
   async function authenticate(email) {
     const response = await authenticateService(email)
@@ -86,6 +88,8 @@ export const AuthProvider = ({ children }) => {
       return false
     }
 
+    localStorage.clear()
+    setShouldPersist(false)
     dispatch(setUser(null))
     dispatch(setNotifications({
       status: 'success',
@@ -116,6 +120,8 @@ export const AuthProvider = ({ children }) => {
     signOut,
     refresh,
     authenticate,
+    shouldPersist,
+    setShouldPersist
   }
 
   return (

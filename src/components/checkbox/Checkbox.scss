@@ -1,0 +1,43 @@
+@use "../../styles/variables" as v;
+
+.checkbox-control {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  margin-block: v.$sp-md;
+}
+
+input[type="checkbox"] {
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.025em);
+  display: grid;
+  place-content: center;
+
+  & + .checkmark {
+    width: 0.65em;
+    height: 0.65em;
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 0rem;
+    transform: translate(-50%, -50%);
+    transition: v.$transition-fast;
+    z-index: 1;
+    
+    path {
+      stroke-width: 6;
+    }
+  }
+
+  &:checked {
+    + .checkmark {
+      font-size: 3rem;
+    }
+  }
+}
