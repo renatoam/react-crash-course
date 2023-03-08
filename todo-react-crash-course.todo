@@ -11,6 +11,7 @@ Implementar:
   ☐ Arrumar estilos
   ☐ Criar internacionalização
   ☐ Criar Dark Mode
+  ☐ Fechar o drawer quando mudar de rota
 
   ☐ Documentar inconsistencias do Vite (httpOnly no 127... e case insensitive macOs)
 

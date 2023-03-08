@@ -51,6 +51,14 @@
     "id": "f3b645ab-c777-4a1b-bb38-74474c52d64f",
     "email": "renato@alves.com",
     "password": "$2b$10$FUXDzaci8Xkqz.pez1UsZuGucDo/RfXDTo10Wp3no/W2V8ATsBHKa",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbmF0b0BhbHZlcy5jb20iLCJpYXQiOjE2Njc2MTI4NTksImV4cCI6MTY2NzYyNzI1OX0.y4oyu3LY_9opVZQjkJg227zlsgeoh-MdF0mB13Q9nUA"
+    "refreshToken": ""
+  },
+  {
+    "firstname": "Ikki",
+    "lastname": "de Fenix",
+    "email": "ikkifenix@santuario.com",
+    "id": "ee87e506-c99b-41ac-9ef6-9dc32a62f91a",
+    "password": "$2b$10$8Th48lUEJyCxGqeJJ5Z6G.7C8MuYgtSP259foF9xsojZET9y.zuP2",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlra2lmZW5peEBzYW50dWFyaW8uY29tIiwiaWF0IjoxNjY3NjgyMjc5LCJleHAiOjE2Njc2ODU4Nzl9.opNnYxXUjiSdHAMCCCKjhB22kns7eVLgjMDJ98bdwfE"
   }
 ]

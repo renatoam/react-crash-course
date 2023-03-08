@@ -1,8 +1,8 @@
-import './Menu.scss'
-import { links } from "./links"
-import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import { toggleMenu } from "../../../../store/menuSlice"
+import { links } from "./links"
+import './Menu.scss'
  
 export default function Menu() {
   const dispatch = useDispatch()

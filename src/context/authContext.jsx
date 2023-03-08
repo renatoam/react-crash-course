@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     dispatch(setUser({ ...response.user, isLogged: true }))
     dispatch(setNotifications({
       status: 'success',
-      message:  `Bem-vindo, ${response.firstname ?? 'camarada'}`
+      message:  `Bem-vindo, ${response.user.firstname ?? 'camarada'}`
     }))
     
     return true
